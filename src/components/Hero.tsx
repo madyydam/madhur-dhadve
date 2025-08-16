@@ -1,6 +1,5 @@
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-image.jpg";
 
 const Hero = () => {
   const scrollToAbout = () => {
@@ -8,21 +7,17 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative bg-gradient-to-b from-background to-accent px-6">
-      <div className="max-w-4xl mx-auto text-center">
-        <div className="mb-8">
-          <img 
-            src={heroImage} 
-            alt="Madhur Dhadve" 
-            className="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto mb-8 object-cover shadow-lg"
-          />
-        </div>
+    <section className="min-h-screen flex items-center justify-center px-6 relative bg-gradient-to-br from-background to-accent/5">
+      <div className="text-center max-w-4xl mx-auto">
+        {/* Decorative elements */}
+        <div className="absolute top-20 left-10 w-20 h-20 bg-accent-blue/10 rounded-full blur-xl"></div>
+        <div className="absolute bottom-32 right-16 w-32 h-32 bg-accent-blue/5 rounded-full blur-2xl"></div>
         
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground to-accent-blue bg-clip-text text-transparent">
           Madhur Dhadve
         </h1>
         
-        <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-12 leading-relaxed">
+        <p className="text-lg md:text-xl lg:text-2xl text-text-secondary mb-12 max-w-3xl mx-auto leading-relaxed">
           A curious learner exploring technology, creativity, and business
         </p>
         
@@ -30,15 +25,11 @@ const Hero = () => {
           onClick={scrollToAbout}
           variant="outline" 
           size="lg"
-          className="group"
+          className="group hover:bg-accent-blue hover:text-white hover:border-accent-blue transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
         >
           Know More About Me
-          <ChevronDown className="ml-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
+          <ChevronDown className="ml-2 h-4 w-4 group-hover:animate-bounce" />
         </Button>
-      </div>
-      
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <ChevronDown className="h-6 w-6 text-muted-foreground" />
       </div>
     </section>
   );

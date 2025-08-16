@@ -42,14 +42,17 @@ const Contact = () => {
       icon: <Instagram className="h-5 w-5" />,
       label: "Instagram",
       value: "@madhur_dhadve",
-      link: "https://www.instagram.com/madhur_dhadve?utm_source=ig_web_button_share_sheet&igsh=MTZzZ3Y2b3AyOHhlZw=="
+      link: "https://www.instagram.com/madhur_dhadve?utm_source=ig_web_button_share_sheet&igsh=MTZzZ3Y2b3AyOHhlZw==",
+      hasButton: true
     }
   ];
 
   return (
-    <section id="contact" className="py-20 px-6 border-t border-section-border">
+    <section id="contact" className="py-20 px-6 border-t border-section-border bg-gradient-to-b from-accent/3 to-background">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Contact & Social</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center bg-gradient-to-r from-foreground to-accent-blue bg-clip-text text-transparent">
+          Contact & Social
+        </h2>
         
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Info */}
@@ -57,21 +60,34 @@ const Contact = () => {
             <h3 className="text-2xl font-semibold mb-6">Get in Touch</h3>
             <div className="space-y-4 mb-8">
               {contactInfo.map((contact, index) => (
-                <a 
-                  key={index}
-                  href={contact.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center p-4 rounded-lg border border-border hover:bg-accent transition-colors group"
-                >
-                  <div className="text-accent-blue mr-4 group-hover:scale-110 transition-transform">
-                    {contact.icon}
-                  </div>
-                  <div>
-                    <p className="font-medium">{contact.label}</p>
-                    <p className="text-text-secondary">{contact.value}</p>
-                  </div>
-                </a>
+                <div key={index} className="space-y-3">
+                  <a 
+                    href={contact.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center p-4 rounded-lg border border-border hover:bg-accent transition-all duration-300 group hover:shadow-lg"
+                  >
+                    <div className="text-accent-blue mr-4 group-hover:scale-110 transition-transform">
+                      {contact.icon}
+                    </div>
+                    <div>
+                      <p className="font-medium">{contact.label}</p>
+                      <p className="text-text-secondary">{contact.value}</p>
+                    </div>
+                  </a>
+                  
+                  {contact.hasButton && (
+                    <Button 
+                      onClick={() => window.open(contact.link, '_blank')}
+                      variant="outline"
+                      size="sm"
+                      className="ml-4 hover:bg-accent-blue hover:text-white hover:border-accent-blue transition-all duration-300"
+                    >
+                      DM On Insta
+                      <Instagram className="ml-2 h-3 w-3" />
+                    </Button>
+                  )}
+                </div>
               ))}
             </div>
           </div>

@@ -4,22 +4,22 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 const Projects = () => {
   const projects = [
     {
-      title: "E-commerce Website",
-      description: "A full-featured online store with modern design and seamless user experience",
-      link: "#",
-      tags: ["Web Design", "E-commerce", "Full-stack"]
+      title: "Velora Creatives",
+      description: "A marketing agency co-founded to help brands with creative design, social media, and digital growth. My role includes web design, branding, and strategy.",
+      link: "https://veloracreative.vercel.app/",
+      tags: ["Co-founder", "Design", "Marketing"]
     },
     {
       title: "Futora AI",
-      description: "AI-powered platform I founded to explore the future of artificial intelligence applications",
+      description: "An AI-focused agency I started to explore how artificial intelligence tools can help creators and businesses. Currently building projects and sharing resources.",
       link: "https://futoraai.vercel.app/",
-      tags: ["AI", "Founder", "Startup"]
+      tags: ["Founder", "AI", "Tools"]
     },
     {
-      title: "Velora Creatives",
-      description: "Creative agency I co-founded focusing on digital design and brand development",
-      link: "https://veloracreative.vercel.app/",
-      tags: ["Design", "Co-founder", "Branding"]
+      title: "E-Commerce Website",
+      description: "An online store I built to practice web design and understand how digital shops work. Focused on clean design, smooth navigation, and mobile-friendly shopping.",
+      link: "#",
+      tags: ["Web Design", "E-commerce", "Practice"]
     }
   ];
 

@@ -8,7 +8,7 @@ const Projects = () => {
       title: "Velora Creatives",
       description: "A marketing agency co-founded to help brands with creative design, social media, and digital growth. My role includes web design, branding, and strategy.",
       link: "https://veloracreative.vercel.app/",
-      tags: ["Co-founder", "Design", "Marketing"],
+      tags: ["Co-founder", "Tech Head", "Marketing"],
       hasWebsite: true
     },
     {
@@ -70,9 +70,8 @@ const Projects = () => {
                 {project.hasWebsite && (
                   <Button 
                     onClick={() => window.open(project.link, '_blank')}
-                    variant="outline"
                     size="sm"
-                    className="w-full group-hover:bg-accent-blue group-hover:text-white group-hover:border-accent-blue transition-all duration-300"
+                    className="w-full bg-gradient-to-r from-foreground to-accent-blue text-white hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
                   >
                     View Website
                     <ExternalLink className="ml-2 h-3 w-3" />

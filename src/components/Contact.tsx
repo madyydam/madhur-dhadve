@@ -79,9 +79,8 @@ const Contact = () => {
                   {contact.hasButton && (
                     <Button 
                       onClick={() => window.open(contact.link, '_blank')}
-                      variant="outline"
                       size="sm"
-                      className="ml-4 hover:bg-accent-blue hover:text-white hover:border-accent-blue transition-all duration-300"
+                      className="ml-4 bg-gradient-to-r from-foreground to-accent-blue text-white hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
                     >
                       DM On Insta
                       <Instagram className="ml-2 h-3 w-3" />

@@ -37,8 +37,9 @@ const About = () => {
           {aboutCards.map((card, index) => (
             <div
               key={index}
-              className="bg-card rounded-xl p-8 shadow-[var(--shadow-card)] border border-border hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group"
+              className="bg-gradient-to-br from-foreground via-accent-blue to-foreground p-[1px] rounded-xl hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group"
             >
+              <div className="bg-card rounded-xl p-8 h-full">
               <div className="flex items-start gap-4 mb-4">
                 <div className="text-3xl group-hover:scale-110 transition-transform duration-300">
                   {card.emoji}
@@ -47,9 +48,10 @@ const About = () => {
                   {card.title}
                 </h3>
               </div>
-              <p className="text-text-secondary leading-relaxed whitespace-pre-line">
-                {card.content}
-              </p>
+                <p className="text-text-secondary leading-relaxed whitespace-pre-line">
+                  {card.content}
+                </p>
+              </div>
             </div>
           ))}
         </div>

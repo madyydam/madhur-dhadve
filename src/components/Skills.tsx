@@ -26,8 +26,9 @@ const Skills = () => {
             return (
               <div
                 key={skill.name}
-                className="bg-card rounded-lg p-6 shadow-[var(--shadow-card)] border border-border hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                className="bg-gradient-to-br from-foreground via-accent-blue to-foreground p-[1px] rounded-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
+                <div className="bg-card rounded-lg p-6 h-full">
                 <div className="flex items-start gap-4">
                   <div className="p-3 bg-accent-blue-light rounded-lg">
                     <Icon className="h-6 w-6 text-accent-blue" />
@@ -44,6 +45,7 @@ const Skills = () => {
                       {skill.level}
                     </span>
                   </div>
+                </div>
                 </div>
               </div>
             );

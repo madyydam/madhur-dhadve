@@ -38,8 +38,9 @@ const Projects = () => {
           {projects.map((project, index) => (
             <Card 
               key={index} 
-              className="group hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border-border bg-card/50 backdrop-blur-sm overflow-hidden relative"
+              className="group hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border-2 border-transparent bg-gradient-to-br from-foreground via-accent-blue to-foreground p-[1px] bg-card/50 backdrop-blur-sm overflow-hidden relative rounded-lg"
             >
+              <div className="bg-card/90 backdrop-blur-sm rounded-lg h-full">
               {/* Gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               
@@ -78,6 +79,7 @@ const Projects = () => {
                   </Button>
                 )}
               </CardContent>
+              </div>
             </Card>
           ))}
         </div>

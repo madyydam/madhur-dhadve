@@ -1,17 +1,9 @@
-import { ChevronDown, ExternalLink, MessageCircle } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   const scrollToAbout = () => {
     document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const openWebsite = () => {
-    window.open('https://futoraai.vercel.app/', '_blank');
-  };
-
-  const openInstagram = () => {
-    window.open('https://www.instagram.com/madhur_dhadve?utm_source=ig_web_button_share_sheet&igsh=MTZzZ3Y2b3AyOHhlZw==', '_blank');
   };
 
   return (
@@ -29,35 +21,14 @@ const Hero = () => {
           A curious learner exploring technology, creativity, and business
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button 
-            onClick={openWebsite}
-            className="bg-gradient-to-r from-foreground to-accent-blue text-white hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
-            size="lg"
-          >
-            <ExternalLink className="mr-2 h-4 w-4" />
-            View Website
-          </Button>
-          
-          <Button 
-            onClick={openInstagram}
-            className="bg-gradient-to-r from-foreground to-accent-blue text-white hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
-            size="lg"
-          >
-            <MessageCircle className="mr-2 h-4 w-4" />
-            DM on Insta
-          </Button>
-          
-          <Button 
-            onClick={scrollToAbout}
-            variant="outline" 
-            size="lg"
-            className="group hover:bg-accent-blue hover:text-white hover:border-accent-blue transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-          >
-            Know More About Me
-            <ChevronDown className="ml-2 h-4 w-4 group-hover:animate-bounce" />
-          </Button>
-        </div>
+        <Button 
+          onClick={scrollToAbout}
+          className="bg-gradient-to-r from-foreground to-accent-blue text-white hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 group"
+          size="lg"
+        >
+          Know More About Me
+          <ChevronDown className="ml-2 h-4 w-4 group-hover:animate-bounce" />
+        </Button>
       </div>
     </section>
   );

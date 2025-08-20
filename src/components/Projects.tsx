@@ -6,7 +6,7 @@ const Projects = () => {
   const projects = [
     {
       title: "Velora Creatives",
-      description: "A marketing agency co-founded to help brands with creative design, social media, and digital growth. My role includes web design, branding, and strategy.",
+      description: "A marketing agency co-founded to help brands grow through creative design, social media, and digital strategy. My role focuses on the technical side of client projects, including editing, digital advertising, marketing campaigns, websites, apps, and more.",
       link: "https://veloracreative.vercel.app/",
       tags: ["Co-founder", "Tech Head", "Marketing"],
       hasWebsite: true

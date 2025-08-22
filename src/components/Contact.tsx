@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Mail, Phone, Instagram, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -13,16 +14,41 @@ const Contact = () => {
     email: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate form submission
-    toast({
-      title: "Message sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
-    setFormData({ name: '', email: '', message: '' });
+    setIsSubmitting(true);
+
+    try {
+      const { error } = await supabase
+        .from('messages')
+        .insert({
+          name: formData.name,
+          email: formData.email,
+          messages: formData.message
+        });
+
+      if (error) {
+        throw error;
+      }
+
+      toast({
+        title: "Message sent!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      console.error('Error sending message:', error);
+      toast({
+        title: "Error sending message",
+        description: "Please try again later or contact me directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -127,8 +153,8 @@ const Contact = () => {
                     required
                   />
                 </div>
-                <Button type="submit" className="w-full group">
-                  Send Message
+                <Button type="submit" className="w-full group" disabled={isSubmitting}>
+                  {isSubmitting ? "Sending..." : "Send Message"}
                   <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </form>

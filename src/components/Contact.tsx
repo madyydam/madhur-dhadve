@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, Phone, Instagram, Send } from "lucide-react";
+import { Mail, Phone, Instagram, Send, MessageCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -65,11 +65,20 @@ const Contact = () => {
       link: "tel:+918452854044"
     },
     {
+      icon: <MessageCircle className="h-5 w-5" />,
+      label: "WhatsApp",
+      value: "+91 8452854044",
+      link: "https://wa.me/918452854044",
+      hasButton: true,
+      buttonText: "Chat on WhatsApp"
+    },
+    {
       icon: <Instagram className="h-5 w-5" />,
       label: "Instagram",
       value: "@madhur_dhadve",
       link: "https://www.instagram.com/madhur_dhadve?utm_source=ig_web_button_share_sheet&igsh=MTZzZ3Y2b3AyOHhlZw==",
-      hasButton: true
+      hasButton: true,
+      buttonText: "DM On Insta"
     }
   ];
 
@@ -108,8 +117,12 @@ const Contact = () => {
                       size="sm"
                       className="ml-4 bg-gradient-to-r from-foreground to-accent-blue text-white hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
                     >
-                      DM On Insta
-                      <Instagram className="ml-2 h-3 w-3" />
+                      {contact.buttonText}
+                      {contact.label === "WhatsApp" ? (
+                        <MessageCircle className="ml-2 h-3 w-3" />
+                      ) : (
+                        <Instagram className="ml-2 h-3 w-3" />
+                      )}
                     </Button>
                   )}
                 </div>

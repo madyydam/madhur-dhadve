@@ -60,15 +60,15 @@ const Contact = () => {
     },
     {
       icon: <Phone className="h-5 w-5" />,
-      label: "Phone", 
-      value: "+91 8452854044",
-      link: "tel:+918452854044"
+      label: "Phone",
+      value: "+91 8446653644",
+      link: "tel:+918446653644"
     },
     {
       icon: <MessageCircle className="h-5 w-5" />,
       label: "WhatsApp",
-      value: "+91 8452854044",
-      link: "https://wa.me/918452854044",
+      value: "+91 8446653644",
+      link: "https://wa.me/918446653644",
       hasButton: true,
       buttonText: "Chat on WhatsApp"
     },

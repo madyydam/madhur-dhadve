@@ -3,12 +3,12 @@ const About = () => {
     {
       emoji: "👋",
       title: "Who I Am",
-      content: "I'm Madhur Dhadve, 18 years old, currently studying Computer Engineering. I'm curious about how technology, creativity, and business connect — and I'm building my journey step by step."
+      content: "I'm Madhur Dhadve, 18 years old, currently studying Computer Engineering. I'm curious about how technology, creativity, and business connects and I'm building my journey step by step."
     },
     {
       emoji: "📚",
       title: "What I'm Learning",
-      content: "I spend my time learning and practicing web design, graphic design, video editing, and digital marketing, while also exploring AI, cybersecurity, and full-stack development. I also share videos about AI tools, tech, and creativity on my YouTube channel."
+      content: "I spend my time exploring web design, graphic design, video editing, and digital marketing, while diving deeper into AI, cybersecurity, and full-stack development. Along the way, I share practical insights, creative experiments, and AI-driven tools on my YouTube channel — blending tech with creativity to build something meaningful."
     },
     {
       emoji: "🚀",

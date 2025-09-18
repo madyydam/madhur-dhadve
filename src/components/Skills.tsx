@@ -6,7 +6,7 @@ const Skills = () => {
     { name: "Graphic Design", icon: Palette, level: "Intermediate" },
     { name: "Video Editing", icon: Video, level: "Intermediate" },
     { name: "Digital Marketing", icon: TrendingUp, level: "Intermediate" },
-    { name: "Meta Ads", icon: Target, level: "Beginner" },
+    { name: "Meta Ads", icon: Target, level: "Intermediate" },
     { name: "Content Creation (YouTube)", icon: Youtube, level: "Intermediate" },
     { name: "AI", icon: Brain, level: "Learning" },
     { name: "Cybersecurity", icon: Shield, level: "Learning" },
@@ -50,6 +50,17 @@ const Skills = () => {
               </div>
             );
           })}
+        </div>
+        
+        <div className="text-center mt-12">
+          <a
+            href="https://drive.google.com/drive/folders/11huGanzy18lBr_BwahH3WEeOPyoxn1Di"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-foreground to-accent-blue text-white px-6 py-3 rounded-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 font-medium"
+          >
+            View My Portfolio
+          </a>
         </div>
       </div>
     </section>

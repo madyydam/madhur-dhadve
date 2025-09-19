@@ -16,16 +16,19 @@ export type Database = {
     Tables: {
       messages: {
         Row: {
+          contact_number: string | null
           email: string
           messages: string
           name: string
         }
         Insert: {
+          contact_number?: string | null
           email: string
           messages: string
           name: string
         }
         Update: {
+          contact_number?: string | null
           email?: string
           messages?: string
           name?: string

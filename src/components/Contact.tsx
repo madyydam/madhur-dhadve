@@ -12,6 +12,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    contactNumber: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -27,6 +28,7 @@ const Contact = () => {
         .insert({
           name: formData.name,
           email: formData.email,
+          contact_number: formData.contactNumber,
           messages: formData.message
         });
 
@@ -38,7 +40,7 @@ const Contact = () => {
         title: "Message sent!",
         description: "Thank you for reaching out. I'll get back to you soon.",
       });
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ name: '', email: '', contactNumber: '', message: '' });
     } catch (error) {
       console.error('Error sending message:', error);
       toast({
@@ -154,6 +156,16 @@ const Contact = () => {
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
                     required
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="contactNumber">Contact Number</Label>
+                  <Input
+                    id="contactNumber"
+                    type="tel"
+                    value={formData.contactNumber}
+                    onChange={(e) => setFormData({...formData, contactNumber: e.target.value})}
+                    placeholder="+91 1234567890"
                   />
                 </div>
                 <div>

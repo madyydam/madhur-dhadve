@@ -21,46 +21,47 @@ const Skills = () => {
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skills.map((skill) => {
+          {skills.map((skill, index) => {
             const Icon = skill.icon;
             return (
-              <div
-                key={skill.name}
-                className="bg-gradient-to-br from-foreground via-accent-blue to-foreground p-[1px] rounded-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-              >
-                <div className="bg-card rounded-lg p-6 h-full">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-accent-blue-light rounded-lg">
-                    <Icon className="h-6 w-6 text-accent-blue" />
+              <div key={skill.name}>
+                <div className="bg-gradient-to-br from-foreground via-accent-blue to-foreground p-[1px] rounded-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                  <div className="bg-card rounded-lg p-6 h-full">
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 bg-accent-blue-light rounded-lg">
+                      <Icon className="h-6 w-6 text-accent-blue" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-foreground mb-2">{skill.name}</h3>
+                      <span className={`text-sm px-3 py-1 rounded-full ${
+                        skill.level === 'Learning' 
+                          ? 'bg-yellow-100 text-yellow-800' 
+                          : skill.level === 'Beginner'
+                          ? 'bg-blue-100 text-blue-800'
+                          : 'bg-green-100 text-green-800'
+                      }`}>
+                        {skill.level}
+                      </span>
+                    </div>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="font-semibold text-foreground mb-2">{skill.name}</h3>
-                    <span className={`text-sm px-3 py-1 rounded-full ${
-                      skill.level === 'Learning' 
-                        ? 'bg-yellow-100 text-yellow-800' 
-                        : skill.level === 'Beginner'
-                        ? 'bg-blue-100 text-blue-800'
-                        : 'bg-green-100 text-green-800'
-                    }`}>
-                      {skill.level}
-                    </span>
                   </div>
                 </div>
-                </div>
+                
+                {skill.name === "Video Editing" && (
+                  <div className="text-center mt-6">
+                    <a
+                      href="https://drive.google.com/drive/folders/11huGanzy18lBr_BwahH3WEeOPyoxn1Di"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-gradient-to-r from-foreground to-accent-blue text-white px-6 py-3 rounded-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 font-medium"
+                    >
+                      View My Portfolio
+                    </a>
+                  </div>
+                )}
               </div>
             );
           })}
-        </div>
-        
-        <div className="text-center mt-12">
-          <a
-            href="https://drive.google.com/drive/folders/11huGanzy18lBr_BwahH3WEeOPyoxn1Di"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-foreground to-accent-blue text-white px-6 py-3 rounded-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 font-medium"
-          >
-            View My Portfolio
-          </a>
         </div>
       </div>
     </section>

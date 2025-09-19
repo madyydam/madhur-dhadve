@@ -8,7 +8,7 @@ const About = () => {
     {
       emoji: "📚",
       title: "What I'm Learning",
-      content: "I spend my time exploring web design, graphic design, video editing, and digital marketing, while diving deeper into AI, cybersecurity, and full-stack development. Along the way, I share practical insights, creative experiments, and AI-driven tools on my YouTube channel — blending tech with creativity to build something meaningful."
+      content: "I spend my time exploring web design, graphic design, video editing, and digital marketing, while diving deeper into AI, cybersecurity, and full-stack development. Along the way, I share practical insights, creative experiments, and AI-driven tools on my YouTube channel blending tech with creativity to build something meaningful."
     },
     {
       emoji: "🚀",

@@ -33,6 +33,11 @@ const Skills = () => {
                     </div>
                     <div className="flex-1">
                       <h3 className="font-semibold text-foreground mb-2">{skill.name}</h3>
+                      {skill.name === "Video Editing" && (
+                        <p className="text-sm text-muted-foreground mb-2">
+                          Edited over 50+ commercial reels
+                        </p>
+                      )}
                       <span className={`text-sm px-3 py-1 rounded-full ${
                         skill.level === 'Learning' 
                           ? 'bg-yellow-100 text-yellow-800' 

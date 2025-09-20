@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, Phone, Instagram, Send, MessageCircle } from "lucide-react";
+import { Mail, Phone, Instagram, Send, MessageCircle, Linkedin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -95,6 +95,43 @@ const Contact = () => {
           {/* Contact Info */}
           <div>
             <h3 className="text-2xl font-semibold mb-6">Get in Touch</h3>
+            
+            {/* Social Media Icons */}
+            <div className="flex justify-center gap-6 mb-8">
+              <a
+                href="https://www.instagram.com/madhur_dhadve?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-full bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#F77737] hover:scale-110 hover:shadow-lg transition-all duration-300 group"
+              >
+                <Instagram className="h-6 w-6 text-white" />
+              </a>
+              
+              <a
+                href="mailto:madhurdhadve@gmail.com"
+                className="p-3 rounded-full bg-[#EA4335] hover:scale-110 hover:shadow-lg transition-all duration-300 group"
+              >
+                <Mail className="h-6 w-6 text-white" />
+              </a>
+              
+              <a
+                href="https://wa.me/918446653644"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-full bg-[#25D366] hover:scale-110 hover:shadow-lg transition-all duration-300 group"
+              >
+                <MessageCircle className="h-6 w-6 text-white" />
+              </a>
+              
+              <a
+                href="https://www.linkedin.com/in/madhur-dhadve-5b598433a"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-full bg-[#0A66C2] hover:scale-110 hover:shadow-lg transition-all duration-300 group"
+              >
+                <Linkedin className="h-6 w-6 text-white" />
+              </a>
+            </div>
             <div className="space-y-4 mb-8">
               {contactInfo.map((contact, index) => (
                 <div key={index} className="space-y-3">

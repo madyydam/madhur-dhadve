@@ -13,6 +13,18 @@ const Skills = () => {
     { name: "Full-Stack Development", icon: Layers, level: "Learning" },
   ];
 
+  const skillDescriptions = {
+    "Web Design": "Designed responsive and user-friendly websites",
+    "Graphic Design": "Created engaging brand visuals and social media creatives",
+    "Video Editing": "Edited over 50+ commercial reels",
+    "Digital Marketing": "Executed campaigns to boost online reach and engagement",
+    "Meta Ads": "Managed targeted ad campaigns for lead generation",
+    "Content Creation (YouTube)": "Creating engaging content and building audience",
+    "AI": "Exploring and applying AI to enhance creativity and productivity",
+    "Cybersecurity": "Learning fundamentals of securing applications and data",
+    "Full-Stack Development": "Building projects with both front-end and back-end skills",
+  };
+
   return (
     <section id="skills" className="py-20 px-6 border-t border-section-border bg-accent/30">
       <div className="max-w-6xl mx-auto">
@@ -33,9 +45,9 @@ const Skills = () => {
                     </div>
                     <div className="flex-1">
                       <h3 className="font-semibold text-foreground mb-2">{skill.name}</h3>
-                      {skill.name === "Video Editing" && (
+                      {skillDescriptions[skill.name] && (
                         <p className="text-sm text-muted-foreground mb-2">
-                          Edited over 50+ commercial reels
+                          {skillDescriptions[skill.name]}
                         </p>
                       )}
                       <span className={`text-sm px-3 py-1 rounded-full ${

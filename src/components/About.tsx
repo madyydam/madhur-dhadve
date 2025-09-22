@@ -3,7 +3,7 @@ const About = () => {
     {
       emoji: "👋",
       title: "Who I Am",
-      content: "I'm Madhur Dhadve, 18 years old, currently studying Computer Engineering. I'm curious about how technology, creativity, and business connects and I'm building my journey step by step."
+      content: "I'm Madhur Dhadve, 18 years old, currently studying Software Engineering. I'm curious about how technology, creativity, and business connects and I'm building my journey step by step."
     },
     {
       emoji: "📚",

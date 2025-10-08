@@ -6,7 +6,7 @@ const Projects = () => {
   const projects = [
     {
       title: "BrandLift",
-      description: "A digital marketing agency I founded to help businesses grow their brand presence through creativity, strategy, and innovative campaigns. I also handle the technical side of client projects, including editing, digital advertising, marketing campaigns, websites, apps, and more.",
+      description: "A digital marketing agency helping businesses grow through creative strategy, digital marketing, and technical solutions including websites, apps, and campaigns.",
       link: "https://brandl1ft.vercel.app/",
       tags: ["Founder", "Marketing", "Strategy"],
       hasWebsite: true

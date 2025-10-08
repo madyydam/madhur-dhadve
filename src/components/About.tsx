@@ -11,14 +11,36 @@ const About = () => {
       content: "I spend my time exploring web design, graphic design, video editing, and digital marketing, while diving deeper into AI, cybersecurity, and full-stack development. Along the way, I share practical insights, creative experiments, and AI-driven tools on my YouTube channel blending tech with creativity to build something meaningful."
     },
     {
-      emoji: "🚀",
-      title: "What I've Built",
-      content: "• BrandLift (Founder) – helping businesses grow through creative strategy and digital marketing.\n• Futora AI (Founder) – exploring how AI tools help creators and businesses.\n• Velora Creatives (Co-Founder) – helping brands grow with creative design and strategy.\n• An E-Commerce Store to practice design and user experience."
-    },
-    {
       emoji: "🌱",
       title: "Looking Ahead",
       content: "This portfolio isn't just a showcase of my work — it's a journal of growth. It reflects what I've done, what I'm learning today, and the projects I'll build tomorrow."
+    }
+  ];
+
+  const builtProjects = [
+    {
+      emoji: "🏢",
+      title: "BrandLift",
+      role: "Founder",
+      content: "Helping businesses grow through creative strategy and digital marketing."
+    },
+    {
+      emoji: "🤖",
+      title: "Futora AI",
+      role: "Founder",
+      content: "Exploring how AI tools help creators and businesses."
+    },
+    {
+      emoji: "🎨",
+      title: "Velora Creatives",
+      role: "Co-Founder",
+      content: "Helping brands grow with creative design and strategy."
+    },
+    {
+      emoji: "🛒",
+      title: "E-Commerce Store",
+      role: "Developer",
+      content: "Practice design and user experience for digital shops."
     }
   ];
 
@@ -33,27 +55,63 @@ const About = () => {
         </h2>
         <div className="w-24 h-1 bg-gradient-to-r from-accent-blue to-accent-blue-light mx-auto mb-12 rounded-full"></div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {aboutCards.map((card, index) => (
             <div
               key={index}
               className="bg-gradient-to-br from-foreground via-accent-blue to-foreground p-[1px] rounded-xl hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group"
             >
               <div className="bg-card rounded-xl p-8 h-full">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="text-3xl group-hover:scale-110 transition-transform duration-300">
-                  {card.emoji}
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="text-3xl group-hover:scale-110 transition-transform duration-300">
+                    {card.emoji}
+                  </div>
+                  <h3 className="text-xl font-semibold text-foreground bg-gradient-to-r from-foreground to-accent-blue bg-clip-text text-transparent">
+                    {card.title}
+                  </h3>
                 </div>
-                <h3 className="text-xl font-semibold text-foreground bg-gradient-to-r from-foreground to-accent-blue bg-clip-text text-transparent">
-                  {card.title}
-                </h3>
-              </div>
                 <p className="text-text-secondary leading-relaxed whitespace-pre-line">
                   {card.content}
                 </p>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* What I've Built Section */}
+        <div className="space-y-8">
+          <div className="text-center">
+            <h3 className="text-2xl md:text-3xl font-bold mb-2 bg-gradient-to-r from-foreground to-accent-blue bg-clip-text text-transparent">
+              🚀 What I've Built
+            </h3>
+            <div className="w-20 h-1 bg-gradient-to-r from-accent-blue to-accent-blue-light mx-auto mb-8 rounded-full"></div>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {builtProjects.map((project, index) => (
+              <div
+                key={index}
+                className="bg-gradient-to-br from-foreground via-accent-blue to-foreground p-[1px] rounded-xl hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group"
+              >
+                <div className="bg-card rounded-xl p-6 h-full">
+                  <div className="text-center mb-3">
+                    <div className="text-4xl mb-2 group-hover:scale-110 transition-transform duration-300">
+                      {project.emoji}
+                    </div>
+                    <h4 className="text-lg font-semibold text-foreground mb-1">
+                      {project.title}
+                    </h4>
+                    <span className="inline-block px-2 py-1 text-xs bg-accent-blue/10 text-accent-blue rounded-full border border-accent-blue/20">
+                      {project.role}
+                    </span>
+                  </div>
+                  <p className="text-text-secondary text-sm leading-relaxed text-center">
+                    {project.content}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

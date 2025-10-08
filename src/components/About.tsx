@@ -13,7 +13,7 @@ const About = () => {
     {
       emoji: "🚀",
       title: "What I've Built",
-      content: "• An E-Commerce Store to practice design and user experience.\n• Futora AI (Founder) – exploring how AI tools help creators and businesses.\n• Velora Creatives (Co-Founder) – helping brands grow with creative design and strategy."
+      content: "• BrandLift (Founder) – helping businesses grow through creative strategy and digital marketing.\n• Futora AI (Founder) – exploring how AI tools help creators and businesses.\n• Velora Creatives (Co-Founder) – helping brands grow with creative design and strategy.\n• An E-Commerce Store to practice design and user experience."
     },
     {
       emoji: "🌱",

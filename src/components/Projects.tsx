@@ -5,10 +5,10 @@ import { Button } from "@/components/ui/button";
 const Projects = () => {
   const projects = [
     {
-      title: "Velora Creatives",
-      description: "A marketing agency co-founded to help brands grow through creative design, social media, and digital strategy. My role focuses on the technical side of client projects, including editing, digital advertising, marketing campaigns, websites, apps, and more.",
-      link: "https://veloracreative.vercel.app/",
-      tags: ["Co-founder", "Tech Head", "Marketing"],
+      title: "BrandLift",
+      description: "A digital marketing agency I founded to help businesses grow their brand presence through creativity and strategy.",
+      link: "https://brandl1ft.vercel.app/",
+      tags: ["Founder", "Marketing", "Strategy"],
       hasWebsite: true
     },
     {
@@ -16,6 +16,13 @@ const Projects = () => {
       description: "An AI-focused agency I started to explore how artificial intelligence tools can help creators and businesses. Currently building projects and sharing resources.",
       link: "https://futoraai.vercel.app/",
       tags: ["Founder", "AI", "Tools"],
+      hasWebsite: true
+    },
+    {
+      title: "Velora Creatives",
+      description: "A marketing agency co-founded to help brands grow through creative design, social media, and digital strategy. My role focuses on the technical side of client projects, including editing, digital advertising, marketing campaigns, websites, apps, and more.",
+      link: "https://veloracreative.vercel.app/",
+      tags: ["Co-founder", "Tech Head", "Marketing"],
       hasWebsite: true
     },
     {

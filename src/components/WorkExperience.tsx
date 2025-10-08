@@ -53,9 +53,9 @@ const WorkExperience = () => {
 
         {/* More Coming Soon with animated gradient border */}
         <div className="relative group">
-          <div className="absolute -inset-0.5 bg-gradient-to-r from-accent-blue via-accent-blue-light to-accent-blue rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 animate-pulse"></div>
+          <div className="absolute -inset-0.5 bg-gradient-to-r from-accent-blue via-accent-blue to-accent-blue rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 animate-pulse"></div>
           <div className="relative bg-card rounded-lg p-6 flex items-center justify-center">
-            <p className="text-xl font-semibold bg-gradient-to-r from-accent-blue via-accent-blue-light to-accent-blue bg-clip-text text-transparent animate-pulse">
+            <p className="text-xl font-semibold text-accent-blue animate-pulse">
               More Coming Soon...
             </p>
           </div>

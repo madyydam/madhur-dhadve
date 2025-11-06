@@ -6,8 +6,8 @@ const WorkExperience = () => {
     {
       title: "Gadget Dash",
       role: "🧠 Founding Team Member — Head of Innovation & Technology",
-      description: "Leading innovation, technology development, and product strategy at Gadget Dash, an emerging tech platform focused on creative gadgets and digital experiences.",
-      icon: "🧠",
+      description: "Leading innovation and technology development at Gadget Dash.",
+      icon: "https://i.ibb.co/JWX6vBbk/CIRCLE-STCIKER-sits-2.jpg",
       website: "https://www.gadgetdash.in/"
     },
     {
@@ -44,8 +44,12 @@ const WorkExperience = () => {
             >
               <div className="bg-card rounded-xl p-8 h-full">
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="text-3xl group-hover:scale-110 transition-transform duration-300">
-                    {experience.icon}
+                  <div className="group-hover:scale-110 transition-transform duration-300">
+                    {experience.icon.startsWith('http') ? (
+                      <img src={experience.icon} alt={experience.title} className="w-12 h-12 rounded-full object-cover" />
+                    ) : (
+                      <span className="text-3xl">{experience.icon}</span>
+                    )}
                   </div>
                   <div className="flex-1">
                     <h3 className="text-xl font-semibold text-foreground bg-gradient-to-r from-foreground to-accent-blue bg-clip-text text-transparent">
@@ -64,13 +68,13 @@ const WorkExperience = () => {
                 {experience.website && (
                   <Button 
                     asChild
-                    className="bg-accent-blue hover:bg-accent-blue/90 text-white"
+                    className="bg-accent-blue hover:bg-accent-blue/90 text-white w-full"
                   >
                     <a 
                       href={experience.website} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2"
+                      className="inline-flex items-center justify-center gap-2"
                     >
                       Visit Website
                       <ExternalLink className="h-4 w-4" />

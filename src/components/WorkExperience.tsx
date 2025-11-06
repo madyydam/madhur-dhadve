@@ -1,7 +1,15 @@
-import { Briefcase } from "lucide-react";
+import { Briefcase, ExternalLink } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const WorkExperience = () => {
   const experiences = [
+    {
+      title: "Gadget Dash",
+      role: "🧠 Founding Team Member — Head of Innovation & Technology",
+      description: "Leading innovation, technology development, and product strategy at Gadget Dash, an emerging tech platform focused on creative gadgets and digital experiences.",
+      icon: "🧠",
+      website: "https://www.gadgetdash.in/"
+    },
     {
       title: "TNA Marketing Agency",
       description: "Worked as a Video Editor, managing and editing client projects.",
@@ -39,13 +47,36 @@ const WorkExperience = () => {
                   <div className="text-3xl group-hover:scale-110 transition-transform duration-300">
                     {experience.icon}
                   </div>
-                  <h3 className="text-xl font-semibold text-foreground bg-gradient-to-r from-foreground to-accent-blue bg-clip-text text-transparent">
-                    {experience.title}
-                  </h3>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-semibold text-foreground bg-gradient-to-r from-foreground to-accent-blue bg-clip-text text-transparent">
+                      {experience.title}
+                    </h3>
+                    {experience.role && (
+                      <p className="text-sm text-text-secondary mt-1">
+                        {experience.role}
+                      </p>
+                    )}
+                  </div>
                 </div>
-                <p className="text-text-secondary leading-relaxed">
+                <p className="text-text-secondary leading-relaxed mb-4">
                   {experience.description}
                 </p>
+                {experience.website && (
+                  <Button 
+                    asChild
+                    className="bg-accent-blue hover:bg-accent-blue/90 text-white"
+                  >
+                    <a 
+                      href={experience.website} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2"
+                    >
+                      Visit Website
+                      <ExternalLink className="h-4 w-4" />
+                    </a>
+                  </Button>
+                )}
               </div>
             </div>
           ))}

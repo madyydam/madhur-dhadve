@@ -17,32 +17,6 @@ const About = () => {
     }
   ];
 
-  const builtProjects = [
-    {
-      emoji: "🏢",
-      title: "BrandLift",
-      role: "Founder",
-      content: "Helping businesses grow through creative strategy and digital marketing."
-    },
-    {
-      emoji: "🤖",
-      title: "Futora AI",
-      role: "Founder",
-      content: "Exploring how AI tools help creators and businesses."
-    },
-    {
-      emoji: "🎨",
-      title: "Velora Creatives",
-      role: "Co-Founder",
-      content: "Helping brands grow with creative design and strategy."
-    },
-    {
-      emoji: "🛒",
-      title: "E-Commerce Store",
-      role: "Developer",
-      content: "Practice design and user experience for digital shops."
-    }
-  ];
 
   return (
     <section id="about" className="py-20 px-6 border-t border-section-border relative">
@@ -76,42 +50,6 @@ const About = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* What I've Built Section */}
-        <div className="space-y-8">
-          <div className="text-center">
-            <h3 className="text-2xl md:text-3xl font-bold mb-2 bg-gradient-to-r from-foreground to-accent-blue bg-clip-text text-transparent">
-              🚀 What I've Built
-            </h3>
-            <div className="w-20 h-1 bg-gradient-to-r from-accent-blue to-accent-blue-light mx-auto mb-8 rounded-full"></div>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {builtProjects.map((project, index) => (
-              <div
-                key={index}
-                className="bg-gradient-to-br from-foreground via-accent-blue to-foreground p-[1px] rounded-xl hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group"
-              >
-                <div className="bg-card rounded-xl p-6 h-full">
-                  <div className="text-center mb-3">
-                    <div className="text-4xl mb-2 group-hover:scale-110 transition-transform duration-300">
-                      {project.emoji}
-                    </div>
-                    <h4 className="text-lg font-semibold text-foreground mb-1">
-                      {project.title}
-                    </h4>
-                    <span className="inline-block px-2 py-1 text-xs bg-accent-blue/10 text-accent-blue rounded-full border border-accent-blue/20">
-                      {project.role}
-                    </span>
-                  </div>
-                  <p className="text-text-secondary text-sm leading-relaxed text-center">
-                    {project.content}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>

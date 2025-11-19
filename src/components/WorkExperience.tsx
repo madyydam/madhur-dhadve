@@ -29,7 +29,7 @@ const WorkExperience = () => {
       
       <div className="max-w-6xl mx-auto relative">
         <div className="flex items-center justify-center gap-3 mb-4">
-          <Briefcase className="h-8 w-8 text-accent-blue" />
+          <Briefcase className="h-8 w-8 text-foreground" />
           <h2 className="text-3xl md:text-4xl font-bold text-center bg-gradient-to-r from-foreground to-accent-blue bg-clip-text text-transparent">
             Work & Experience
           </h2>

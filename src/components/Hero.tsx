@@ -29,11 +29,6 @@ const Hero = () => {
           🚀 What I've Built
           <ChevronDown className="ml-2 h-4 w-4 group-hover:animate-bounce" />
         </Button>
-        
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
-          <p className="text-sm text-text-secondary">↓ Scroll to explore</p>
-        </div>
       </div>
     </section>
   );

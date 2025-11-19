@@ -8,11 +8,13 @@ import Projects from "@/components/Projects";
 import WorkExperience from "@/components/WorkExperience";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import ScrollProgress from "@/components/ScrollProgress";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
+      <ScrollProgress />
       <Hero />
       <WhatIBuilt />
       <Skills />

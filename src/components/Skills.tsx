@@ -29,7 +29,7 @@ const Skills = () => {
     <section id="skills" className="py-20 px-6 border-t border-section-border bg-accent/30">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center bg-gradient-to-r from-foreground to-accent-blue bg-clip-text text-transparent">
-          Skills & Expertise
+          🔧 Skills & Expertise
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

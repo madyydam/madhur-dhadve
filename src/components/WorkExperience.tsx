@@ -31,7 +31,7 @@ const WorkExperience = () => {
         <div className="flex items-center justify-center gap-3 mb-4">
           <Briefcase className="h-8 w-8 text-accent-blue" />
           <h2 className="text-3xl md:text-4xl font-bold text-center bg-gradient-to-r from-foreground to-accent-blue bg-clip-text text-transparent">
-            Work & Experience
+            📈 Work & Experience
           </h2>
         </div>
         <div className="w-24 h-1 bg-gradient-to-r from-accent-blue to-accent-blue-light mx-auto mb-12 rounded-full"></div>

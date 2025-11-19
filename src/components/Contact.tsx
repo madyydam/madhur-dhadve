@@ -114,7 +114,7 @@ const Contact = () => {
     <section id="contact" className="py-20 px-6 border-t border-section-border bg-gradient-to-b from-accent/3 to-background">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center bg-gradient-to-r from-foreground to-accent-blue bg-clip-text text-transparent">
-          Contact & Social
+          📬 Contact & Social
         </h2>
         
         <div className="grid lg:grid-cols-2 gap-12">

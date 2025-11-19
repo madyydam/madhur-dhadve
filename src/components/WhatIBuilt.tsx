@@ -78,7 +78,7 @@ const WhatIBuilt = () => {
                   <Button 
                     onClick={() => window.open(project.link, '_blank')}
                     size="sm"
-                    className="w-full bg-gradient-to-r from-foreground to-accent-blue text-white hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                    className="w-full bg-accent-blue hover:bg-accent-blue/90 text-white"
                   >
                     View Website
                     <ExternalLink className="ml-2 h-3 w-3" />

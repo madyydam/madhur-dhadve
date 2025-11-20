@@ -16,7 +16,7 @@ const ScrollProgress = () => {
   }, []);
 
   return (
-    <div className="fixed right-4 top-20 bottom-4 w-1 bg-border/30 rounded-full z-50 hidden md:block">
+    <div className="fixed right-2 md:right-4 top-20 bottom-4 w-1 bg-border/30 rounded-full z-50">
       {/* Progress fill */}
       <div 
         className="absolute top-0 left-0 w-full bg-gradient-to-b from-accent-blue to-accent-blue-light rounded-full transition-all duration-300 ease-out"

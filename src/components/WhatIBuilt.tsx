@@ -1,4 +1,4 @@
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Smartphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const WhatIBuilt = () => {
@@ -33,7 +33,8 @@ const WhatIBuilt = () => {
       role: "For Founder & Developer",
       content: "Building an AI-powered social media platform for the tech community where developers can share projects, connect, collaborate, and learn.",
       link: "#",
-      hasWebsite: false
+      hasWebsite: false,
+      useIcon: true
     },
     {
       emoji: "🛒",
@@ -67,7 +68,13 @@ const WhatIBuilt = () => {
               <div className="bg-card rounded-xl p-6 h-full flex flex-col">
                 <div className="flex items-start gap-4 mb-4">
                   <div className="text-3xl group-hover:scale-110 transition-transform duration-300">
-                    {project.emoji}
+                    {project.useIcon ? (
+                      <div className="w-10 h-10 rounded-lg bg-accent-blue/10 flex items-center justify-center">
+                        <Smartphone className="w-6 h-6 text-accent-blue" />
+                      </div>
+                    ) : (
+                      project.emoji
+                    )}
                   </div>
                   <div className="flex-1">
                     <h3 className="text-lg font-semibold text-foreground bg-gradient-to-r from-foreground to-accent-blue bg-clip-text text-transparent mb-1">

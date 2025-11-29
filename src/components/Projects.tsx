@@ -1,7 +1,6 @@
-import { ExternalLink, Network } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 
 const Projects = () => {
   const projects = [
@@ -34,14 +33,6 @@ const Projects = () => {
       hasWebsite: false
     }
   ];
-
-  const featuredProject = {
-    title: "Tech Social Media App",
-    role: "Founder & Developer",
-    description: "Building an AI-powered social media platform for the tech community where developers can share projects, connect, collaborate, and learn — all in one place.",
-    tags: ["AI", "Social Platform", "In Development"],
-    inDevelopment: true
-  };
 
   return (
     <section id="projects" className="py-20 px-6 border-t border-section-border bg-gradient-to-b from-background to-accent/3">
@@ -99,53 +90,6 @@ const Projects = () => {
             </Card>
           ))}
         </div>
-
-        {/* Featured Project - Tech Social Media App */}
-        <div className="mt-12">
-          <Card className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:scale-[1.02] border-2 bg-gradient-to-br from-foreground via-accent-blue to-foreground p-[2px] overflow-hidden relative rounded-xl">
-            <div className="bg-card backdrop-blur-sm rounded-xl h-full">
-              {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              
-              <CardHeader className="relative pb-4">
-                <div className="flex items-start justify-between">
-                  <div className="flex items-center gap-3">
-                    <Network className="h-6 w-6 text-accent-blue" strokeWidth={1.5} />
-                    <div>
-                      <CardTitle className="text-2xl md:text-3xl group-hover:text-accent-blue transition-colors duration-300">
-                        {featuredProject.title}
-                      </CardTitle>
-                      <p className="text-sm text-muted-foreground mt-1">{featuredProject.role}</p>
-                    </div>
-                  </div>
-                  {featuredProject.inDevelopment && (
-                    <Badge className="bg-accent-blue/10 text-accent-blue border border-accent-blue/30 hover:bg-accent-blue/20">
-                      In Development
-                    </Badge>
-                  )}
-                </div>
-                <CardDescription className="text-text-secondary leading-relaxed text-base md:text-lg mt-4">
-                  {featuredProject.description}
-                </CardDescription>
-              </CardHeader>
-              
-              <CardContent className="relative pt-0">
-                <div className="flex flex-wrap gap-2">
-                  {featuredProject.tags.map((tag, tagIndex) => (
-                    <span 
-                      key={tagIndex}
-                      className="px-4 py-1.5 text-sm bg-accent-blue/10 text-accent-blue rounded-full border border-accent-blue/20"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </CardContent>
-            </div>
-          </Card>
-        </div>
-
-        <p className="text-center text-muted-foreground mt-12 text-lg">More Coming Soon…</p>
       </div>
     </section>
   );

@@ -28,9 +28,9 @@ const WhatIBuilt = () => {
       hasWebsite: true
     },
     {
-      emoji: "🌐",
+      emoji: "🤖",
       title: "Tech Social Media App",
-      role: "Founder & Developer",
+      role: "For Founder & Developer",
       content: "Building an AI-powered social media platform for the tech community where developers can share projects, connect, collaborate, and learn.",
       link: "#",
       hasWebsite: false

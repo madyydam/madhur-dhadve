@@ -5,9 +5,9 @@ import { Button } from "@/components/ui/button";
 const Projects = () => {
   const projects = [
     {
-      title: "BrandLift",
+      title: "FutoraLift",
       description: "A digital marketing agency helping businesses grow through creative strategy, digital marketing, and technical solutions including websites, apps, and campaigns.",
-      link: "https://brandl1ft.vercel.app/",
+      link: "https://futoralift.vercel.app/",
       tags: ["Founder", "Marketing", "Strategy"],
       hasWebsite: true
     },

@@ -5,10 +5,10 @@ const WhatIBuilt = () => {
   const builtProjects = [
     {
       emoji: "🏢",
-      title: "BrandLift",
+      title: "FutoraLift",
       role: "Founder",
       content: "Helping businesses grow through creative strategy and digital marketing.",
-      link: "https://brandl1ft.vercel.app/",
+      link: "https://futoralift.vercel.app/",
       hasWebsite: true
     },
     {

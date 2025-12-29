@@ -24,13 +24,6 @@ const Projects = () => {
       link: "https://veloracreative.vercel.app/",
       tags: ["Co-founder", "Tech Head", "Marketing"],
       hasWebsite: true
-    },
-    {
-      title: "E-Commerce Website",
-      description: "An online store I built to practice web design and understand how digital shops work. Focused on clean design, smooth navigation, and mobile-friendly shopping.",
-      link: "#",
-      tags: ["Web Design", "E-commerce", "Practice"],
-      hasWebsite: false
     }
   ];
 

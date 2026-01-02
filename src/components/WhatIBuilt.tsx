@@ -12,6 +12,14 @@ const WhatIBuilt = () => {
       hasWebsite: true
     },
     {
+      emoji: "💳",
+      title: "FutoraPay",
+      role: "Founder",
+      content: "AI-powered smart payments and financial management platform.",
+      link: "https://futorapay.vercel.app/",
+      hasWebsite: true
+    },
+    {
       emoji: "🤖",
       title: "Futora AI",
       role: "Founder",
@@ -37,13 +45,12 @@ const WhatIBuilt = () => {
       useIcon: true
     },
     {
-      emoji: "💳",
-      title: "FutoraPay",
-      role: "Founder",
-      content: "AI-powered smart payments and financial management platform.",
-      link: "#futorapay",
-      hasWebsite: false,
-      isInternalLink: true
+      emoji: "🛒",
+      title: "E-Commerce Store",
+      role: "Developer",
+      content: "Practice design and user experience for digital shops.",
+      link: "#",
+      hasWebsite: false
     }
   ];
 

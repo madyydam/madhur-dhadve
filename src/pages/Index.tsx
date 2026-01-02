@@ -9,6 +9,7 @@ import WorkExperience from "@/components/WorkExperience";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
+import FutoraPay from "@/components/FutoraPay";
 
 const Index = () => {
   return (
@@ -17,6 +18,7 @@ const Index = () => {
       <ScrollProgress />
       <Hero />
       <WhatIBuilt />
+      <FutoraPay />
       <Skills />
       <Journey />
       <WorkExperience />

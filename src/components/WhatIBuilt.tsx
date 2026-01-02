@@ -37,12 +37,13 @@ const WhatIBuilt = () => {
       useIcon: true
     },
     {
-      emoji: "🛒",
-      title: "E-Commerce Store",
-      role: "Developer",
-      content: "Practice design and user experience for digital shops.",
-      link: "#",
-      hasWebsite: false
+      emoji: "💳",
+      title: "FutoraPay",
+      role: "Founder",
+      content: "AI-powered smart payments and financial management platform.",
+      link: "#futorapay",
+      hasWebsite: false,
+      isInternalLink: true
     }
   ];
 

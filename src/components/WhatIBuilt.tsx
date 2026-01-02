@@ -1,4 +1,4 @@
-import { ExternalLink, Smartphone, CreditCard } from "lucide-react";
+import { ExternalLink, Smartphone, CreditCard, Rocket, Construction } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const WhatIBuilt = () => {
@@ -10,7 +10,7 @@ const WhatIBuilt = () => {
       content: "Helping businesses grow through creative strategy and digital marketing.",
       link: "https://futoralift.vercel.app/",
       hasWebsite: true,
-      theme: "default"
+      theme: "futoralift"
     },
     {
       emoji: "💳",
@@ -31,22 +31,23 @@ const WhatIBuilt = () => {
       theme: "default"
     },
     {
+      emoji: "📱",
+      title: "FutoraOne",
+      role: "Founder & Developer",
+      content: "Building an AI-powered social media platform for the tech community where developers can share projects, connect, collaborate, and learn.",
+      link: "#",
+      hasWebsite: false,
+      useIcon: true,
+      theme: "futoraone",
+      underConstruction: true
+    },
+    {
       emoji: "🎨",
       title: "Velora Creatives",
       role: "Co-Founder",
       content: "Helping brands grow with creative design and strategy.",
       link: "https://veloracreative.vercel.app/",
       hasWebsite: true,
-      theme: "default"
-    },
-    {
-      emoji: "🤖",
-      title: "Tech Social Media App",
-      role: "For Founder & Developer",
-      content: "Building an AI-powered social media platform for the tech community where developers can share projects, connect, collaborate, and learn.",
-      link: "#",
-      hasWebsite: false,
-      useIcon: true,
       theme: "default"
     },
     {
@@ -61,6 +62,18 @@ const WhatIBuilt = () => {
   ];
 
   const getCardStyles = (theme: string) => {
+    if (theme === "futoralift") {
+      return {
+        wrapper: "bg-gradient-to-br from-[#00A3FF] via-[#0a1628] to-[#00A3FF] p-[1px] rounded-xl hover:shadow-xl hover:shadow-[#00A3FF]/20 transition-all duration-300 hover:-translate-y-2 group",
+        inner: "bg-[#0a1628] rounded-xl p-6 h-full flex flex-col",
+        title: "text-lg font-semibold text-white mb-1",
+        role: "text-xs text-[#00A3FF] font-medium",
+        content: "text-sm text-gray-400 leading-relaxed mb-4 flex-1",
+        button: "w-full bg-[#00A3FF] hover:bg-[#00A3FF]/90 text-white font-semibold",
+        iconBg: "w-10 h-10 rounded-lg bg-[#00A3FF]/20 flex items-center justify-center",
+        iconColor: "text-[#00A3FF]"
+      };
+    }
     if (theme === "futorapay") {
       return {
         wrapper: "bg-gradient-to-br from-[#00D9A5] via-[#0d1117] to-[#00D9A5] p-[1px] rounded-xl hover:shadow-xl hover:shadow-[#00D9A5]/20 transition-all duration-300 hover:-translate-y-2 group",
@@ -71,6 +84,18 @@ const WhatIBuilt = () => {
         button: "w-full bg-[#00D9A5] hover:bg-[#00D9A5]/90 text-[#0d1117] font-semibold",
         iconBg: "w-10 h-10 rounded-lg bg-[#00D9A5]/20 flex items-center justify-center",
         iconColor: "text-[#00D9A5]"
+      };
+    }
+    if (theme === "futoraone") {
+      return {
+        wrapper: "bg-gradient-to-br from-[#8B5CF6] via-[#1a1625] to-[#8B5CF6] p-[1px] rounded-xl hover:shadow-xl hover:shadow-[#8B5CF6]/20 transition-all duration-300 hover:-translate-y-2 group",
+        inner: "bg-[#1a1625] rounded-xl p-6 h-full flex flex-col",
+        title: "text-lg font-semibold text-white mb-1",
+        role: "text-xs text-[#8B5CF6] font-medium",
+        content: "text-sm text-gray-400 leading-relaxed mb-4 flex-1",
+        button: "w-full bg-[#8B5CF6] hover:bg-[#8B5CF6]/90 text-white font-semibold",
+        iconBg: "w-10 h-10 rounded-lg bg-[#8B5CF6]/20 flex items-center justify-center",
+        iconColor: "text-[#8B5CF6]"
       };
     }
     return {
@@ -117,6 +142,10 @@ const WhatIBuilt = () => {
                         <div className={styles.iconBg}>
                           <CreditCard className={`w-6 h-6 ${styles.iconColor}`} />
                         </div>
+                      ) : project.theme === "futoralift" ? (
+                        <div className={styles.iconBg}>
+                          <Rocket className={`w-6 h-6 ${styles.iconColor}`} />
+                        </div>
                       ) : (
                         project.emoji
                       )}
@@ -125,9 +154,17 @@ const WhatIBuilt = () => {
                       <h3 className={styles.title}>
                         {project.title}
                       </h3>
-                      <p className={styles.role}>
-                        {project.role}
-                      </p>
+                      <div className="flex items-center gap-2">
+                        <p className={styles.role}>
+                          {project.role}
+                        </p>
+                        {project.underConstruction && (
+                          <span className="inline-flex items-center gap-1 text-[10px] bg-amber-500/20 text-amber-400 px-1.5 py-0.5 rounded-full font-medium">
+                            <Construction className="w-3 h-3" />
+                            Under Construction
+                          </span>
+                        )}
+                      </div>
                     </div>
                   </div>
                   <p className={styles.content}>

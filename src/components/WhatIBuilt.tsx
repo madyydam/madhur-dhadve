@@ -123,14 +123,14 @@ const WhatIBuilt = () => {
     }
     if (theme === "futuraai") {
       return {
-        wrapper: "bg-gradient-to-br from-[#F97316] via-[#1a1410] to-[#F97316] p-[1px] rounded-xl hover:shadow-xl hover:shadow-[#F97316]/20 transition-all duration-300 hover:-translate-y-2 group",
-        inner: "bg-[#1a1410] rounded-xl p-6 h-full flex flex-col",
+        wrapper: "bg-gradient-to-br from-[#3B82F6] via-[#0f1729] to-[#3B82F6] p-[1px] rounded-xl hover:shadow-xl hover:shadow-[#3B82F6]/20 transition-all duration-300 hover:-translate-y-2 group",
+        inner: "bg-[#0f1729] rounded-xl p-6 h-full flex flex-col",
         title: "text-lg font-semibold text-white mb-1",
-        role: "text-xs text-[#F97316] font-medium",
+        role: "text-xs text-[#3B82F6] font-medium",
         content: "text-sm text-gray-400 leading-relaxed mb-4 flex-1",
-        button: "w-full bg-[#F97316] hover:bg-[#F97316]/90 text-white font-semibold",
-        iconBg: "w-10 h-10 rounded-lg bg-[#F97316]/20 flex items-center justify-center",
-        iconColor: "text-[#F97316]"
+        button: "w-full bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-white font-semibold",
+        iconBg: "w-10 h-10 rounded-lg bg-[#3B82F6]/20 flex items-center justify-center",
+        iconColor: "text-[#3B82F6]"
       };
     }
     if (theme === "velora") {

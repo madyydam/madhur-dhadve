@@ -1,4 +1,4 @@
-import { ExternalLink, Smartphone, CreditCard, Rocket, Construction } from "lucide-react";
+import { ExternalLink, Smartphone, CreditCard, Rocket, Construction, Bot, Palette, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import futoraGroupLogo from "@/assets/futora-group-logo.png";
 
@@ -39,7 +39,7 @@ const WhatIBuilt = () => {
       content: "Exploring how AI tools help creators and businesses.",
       link: "https://futoraai.vercel.app/",
       hasWebsite: true,
-      theme: "default"
+      theme: "futuraai"
     },
     {
       emoji: "📱",
@@ -59,7 +59,7 @@ const WhatIBuilt = () => {
       content: "Helping brands grow with creative design and strategy.",
       link: "https://veloracreative.vercel.app/",
       hasWebsite: true,
-      theme: "default"
+      theme: "velora"
     },
     {
       emoji: "🛒",
@@ -68,7 +68,7 @@ const WhatIBuilt = () => {
       content: "Practice design and user experience for digital shops.",
       link: "#",
       hasWebsite: false,
-      theme: "default"
+      theme: "ecommerce"
     }
   ];
 
@@ -119,6 +119,42 @@ const WhatIBuilt = () => {
         button: "w-full bg-[#22D3EE] hover:bg-[#22D3EE]/90 text-[#0a1628] font-semibold",
         iconBg: "w-10 h-10 rounded-lg bg-[#22D3EE]/20 flex items-center justify-center overflow-hidden",
         iconColor: "text-[#22D3EE]"
+      };
+    }
+    if (theme === "futuraai") {
+      return {
+        wrapper: "bg-gradient-to-br from-[#F97316] via-[#1a1410] to-[#F97316] p-[1px] rounded-xl hover:shadow-xl hover:shadow-[#F97316]/20 transition-all duration-300 hover:-translate-y-2 group",
+        inner: "bg-[#1a1410] rounded-xl p-6 h-full flex flex-col",
+        title: "text-lg font-semibold text-white mb-1",
+        role: "text-xs text-[#F97316] font-medium",
+        content: "text-sm text-gray-400 leading-relaxed mb-4 flex-1",
+        button: "w-full bg-[#F97316] hover:bg-[#F97316]/90 text-white font-semibold",
+        iconBg: "w-10 h-10 rounded-lg bg-[#F97316]/20 flex items-center justify-center",
+        iconColor: "text-[#F97316]"
+      };
+    }
+    if (theme === "velora") {
+      return {
+        wrapper: "bg-gradient-to-br from-[#EAB308] via-[#1a1814] to-[#EAB308] p-[1px] rounded-xl hover:shadow-xl hover:shadow-[#EAB308]/20 transition-all duration-300 hover:-translate-y-2 group",
+        inner: "bg-[#1a1814] rounded-xl p-6 h-full flex flex-col",
+        title: "text-lg font-semibold text-white mb-1",
+        role: "text-xs text-[#EAB308] font-medium",
+        content: "text-sm text-gray-400 leading-relaxed mb-4 flex-1",
+        button: "w-full bg-[#EAB308] hover:bg-[#EAB308]/90 text-[#1a1814] font-semibold",
+        iconBg: "w-10 h-10 rounded-lg bg-[#EAB308]/20 flex items-center justify-center",
+        iconColor: "text-[#EAB308]"
+      };
+    }
+    if (theme === "ecommerce") {
+      return {
+        wrapper: "bg-gradient-to-br from-[#EC4899] via-[#1a1018] to-[#EC4899] p-[1px] rounded-xl hover:shadow-xl hover:shadow-[#EC4899]/20 transition-all duration-300 hover:-translate-y-2 group",
+        inner: "bg-[#1a1018] rounded-xl p-6 h-full flex flex-col",
+        title: "text-lg font-semibold text-white mb-1",
+        role: "text-xs text-[#EC4899] font-medium",
+        content: "text-sm text-gray-400 leading-relaxed mb-4 flex-1",
+        button: "w-full bg-[#EC4899] hover:bg-[#EC4899]/90 text-white font-semibold",
+        iconBg: "w-10 h-10 rounded-lg bg-[#EC4899]/20 flex items-center justify-center",
+        iconColor: "text-[#EC4899]"
       };
     }
     return {
@@ -172,6 +208,18 @@ const WhatIBuilt = () => {
                       ) : project.theme === "futoralift" ? (
                         <div className={styles.iconBg}>
                           <Rocket className={`w-6 h-6 ${styles.iconColor}`} />
+                        </div>
+                      ) : project.theme === "futuraai" ? (
+                        <div className={styles.iconBg}>
+                          <Bot className={`w-6 h-6 ${styles.iconColor}`} />
+                        </div>
+                      ) : project.theme === "velora" ? (
+                        <div className={styles.iconBg}>
+                          <Palette className={`w-6 h-6 ${styles.iconColor}`} />
+                        </div>
+                      ) : project.theme === "ecommerce" ? (
+                        <div className={styles.iconBg}>
+                          <ShoppingCart className={`w-6 h-6 ${styles.iconColor}`} />
                         </div>
                       ) : (
                         project.emoji

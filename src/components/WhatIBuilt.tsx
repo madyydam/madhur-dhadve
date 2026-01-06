@@ -1,5 +1,6 @@
 import { ExternalLink, Smartphone, CreditCard, Rocket, Construction } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import futoraGroupLogo from "@/assets/futora-group-logo.png";
 
 const WhatIBuilt = () => {
   const builtProjects = [
@@ -20,6 +21,16 @@ const WhatIBuilt = () => {
       link: "https://futorapay.vercel.app/",
       hasWebsite: true,
       theme: "futorapay"
+    },
+    {
+      emoji: "🦅",
+      title: "Futora Group",
+      role: "Founder",
+      content: "A group of companies building AI, fintech, social, and growth platforms.",
+      link: "https://futoragroup.vercel.app/",
+      hasWebsite: true,
+      theme: "futoragroup",
+      useLogo: true
     },
     {
       emoji: "🤖",
@@ -98,6 +109,18 @@ const WhatIBuilt = () => {
         iconColor: "text-[#8B5CF6]"
       };
     }
+    if (theme === "futoragroup") {
+      return {
+        wrapper: "bg-gradient-to-br from-[#22D3EE] via-[#0a1628] to-[#22D3EE] p-[1px] rounded-xl hover:shadow-xl hover:shadow-[#22D3EE]/20 transition-all duration-300 hover:-translate-y-2 group",
+        inner: "bg-[#0a1628] rounded-xl p-6 h-full flex flex-col",
+        title: "text-lg font-semibold text-white mb-1",
+        role: "text-xs text-[#22D3EE] font-medium",
+        content: "text-sm text-gray-400 leading-relaxed mb-4 flex-1",
+        button: "w-full bg-[#22D3EE] hover:bg-[#22D3EE]/90 text-[#0a1628] font-semibold",
+        iconBg: "w-10 h-10 rounded-lg bg-[#22D3EE]/20 flex items-center justify-center overflow-hidden",
+        iconColor: "text-[#22D3EE]"
+      };
+    }
     return {
       wrapper: "bg-gradient-to-br from-foreground via-accent-blue to-foreground p-[1px] rounded-xl hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group",
       inner: "bg-card rounded-xl p-6 h-full flex flex-col",
@@ -137,6 +160,10 @@ const WhatIBuilt = () => {
                       {project.useIcon ? (
                         <div className={styles.iconBg}>
                           <Smartphone className={`w-6 h-6 ${styles.iconColor}`} />
+                        </div>
+                      ) : project.useLogo ? (
+                        <div className={styles.iconBg}>
+                          <img src={futoraGroupLogo} alt="Futora Group" className="w-8 h-8 object-contain" />
                         </div>
                       ) : project.theme === "futorapay" ? (
                         <div className={styles.iconBg}>

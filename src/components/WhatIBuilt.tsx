@@ -7,7 +7,7 @@ const WhatIBuilt = () => {
     {
       emoji: "🏢",
       title: "FutoraLift",
-      role: "Founder",
+      tagline: "Growth at Scale",
       content: "Helping businesses grow through creative strategy and digital marketing.",
       link: "https://futoralift.vercel.app/",
       hasWebsite: true,
@@ -16,7 +16,7 @@ const WhatIBuilt = () => {
     {
       emoji: "💳",
       title: "FutoraPay",
-      role: "Founder",
+      tagline: "Intelligent Money Management",
       content: "AI-powered smart payments and financial management platform.",
       link: "https://futorapay.vercel.app/",
       hasWebsite: true,
@@ -25,7 +25,7 @@ const WhatIBuilt = () => {
     {
       emoji: "🦅",
       title: "Futora Group",
-      role: "Founder",
+      tagline: "Building the Future",
       content: "A group of companies building AI, fintech, social, and growth platforms.",
       link: "https://futoragroup.vercel.app/",
       hasWebsite: true,
@@ -35,7 +35,7 @@ const WhatIBuilt = () => {
     {
       emoji: "🤖",
       title: "Futora AI",
-      role: "Founder",
+      tagline: "Intelligence for Tomorrow",
       content: "Exploring how AI tools help creators and businesses.",
       link: "https://futoraai.vercel.app/",
       hasWebsite: true,
@@ -44,7 +44,7 @@ const WhatIBuilt = () => {
     {
       emoji: "📱",
       title: "FutoraOne",
-      role: "Founder & Developer",
+      tagline: "Connect. Build. Grow.",
       content: "Building an AI-powered social media platform for the tech community where developers can share projects, connect, collaborate, and learn.",
       link: "#",
       hasWebsite: false,
@@ -55,7 +55,7 @@ const WhatIBuilt = () => {
     {
       emoji: "🎨",
       title: "Velora Creatives",
-      role: "Co-Founder",
+      tagline: "Creative Design & Strategy",
       content: "Helping brands grow with creative design and strategy.",
       link: "https://veloracreative.vercel.app/",
       hasWebsite: true,
@@ -64,7 +64,7 @@ const WhatIBuilt = () => {
     {
       emoji: "🛒",
       title: "E-Commerce Store",
-      role: "Developer",
+      tagline: "Digital Shopping Experience",
       content: "Practice design and user experience for digital shops.",
       link: "#",
       hasWebsite: false,
@@ -162,8 +162,8 @@ const WhatIBuilt = () => {
                           <Smartphone className={`w-6 h-6 ${styles.iconColor}`} />
                         </div>
                       ) : project.useLogo ? (
-                        <div className={styles.iconBg}>
-                          <img src={futoraGroupLogo} alt="Futora Group" className="w-8 h-8 object-contain" />
+                        <div className="w-12 h-12 rounded-lg flex items-center justify-center overflow-hidden">
+                          <img src={futoraGroupLogo} alt="Futora Group" className="w-12 h-12 object-contain" />
                         </div>
                       ) : project.theme === "futorapay" ? (
                         <div className={styles.iconBg}>
@@ -183,7 +183,7 @@ const WhatIBuilt = () => {
                       </h3>
                       <div className="flex items-center gap-2">
                         <p className={styles.role}>
-                          {project.role}
+                          {project.tagline}
                         </p>
                         {project.underConstruction && (
                           <span className="inline-flex items-center gap-1 text-[10px] bg-amber-500/20 text-amber-400 px-1.5 py-0.5 rounded-full font-medium">

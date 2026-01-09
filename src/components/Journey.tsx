@@ -2,7 +2,7 @@ const Journey = () => {
   const journeySteps = [
     {
       title: "Age",
-      description: "18 years old",
+      description: "19 years old",
       icon: "🎯"
     },
     {

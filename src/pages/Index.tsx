@@ -4,7 +4,6 @@ import WhatIBuilt from "@/components/WhatIBuilt";
 import About from "@/components/About";
 import Journey from "@/components/Journey";
 import Skills from "@/components/Skills";
-import Projects from "@/components/Projects";
 import WorkExperience from "@/components/WorkExperience";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -22,7 +21,6 @@ const Index = () => {
       <WorkExperience />
       <About />
       <Contact />
-      <Projects />
       <Footer />
     </div>
   );

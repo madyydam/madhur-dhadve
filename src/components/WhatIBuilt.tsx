@@ -1,4 +1,4 @@
-import { ExternalLink, Smartphone, CreditCard, Rocket, Construction, Bot, Palette, ShoppingCart } from "lucide-react";
+import { ExternalLink, Smartphone, CreditCard, Rocket, Construction, Bot, Palette, ShoppingCart, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import futoraGroupLogo from "@/assets/futora-group-logo.png";
 
@@ -40,6 +40,15 @@ const WhatIBuilt = () => {
       link: "https://futoraai.vercel.app/",
       hasWebsite: true,
       theme: "futuraai"
+    },
+    {
+      emoji: "🚀",
+      title: "FutoraDrop",
+      tagline: "Product Launch & User Growth Platform",
+      content: "India's invite-only platform to launch products, get real testers, and grow with early users.",
+      link: "https://futoradrop.vercel.app/",
+      hasWebsite: true,
+      theme: "futoradrop"
     },
     {
       emoji: "📱",
@@ -145,6 +154,18 @@ const WhatIBuilt = () => {
         iconColor: "text-[#EAB308]"
       };
     }
+    if (theme === "futoradrop") {
+      return {
+        wrapper: "bg-gradient-to-br from-[#F97316] via-[#1a1410] to-[#F97316] p-[1px] rounded-xl hover:shadow-xl hover:shadow-[#F97316]/20 transition-all duration-300 hover:-translate-y-2 group",
+        inner: "bg-[#1a1410] rounded-xl p-6 h-full flex flex-col",
+        title: "text-lg font-semibold text-white mb-1",
+        role: "text-xs text-[#F97316] font-medium",
+        content: "text-sm text-gray-400 leading-relaxed mb-4 flex-1",
+        button: "w-full bg-[#F97316] hover:bg-[#F97316]/90 text-white font-semibold",
+        iconBg: "w-10 h-10 rounded-lg bg-[#F97316]/20 flex items-center justify-center",
+        iconColor: "text-[#F97316]"
+      };
+    }
     if (theme === "ecommerce") {
       return {
         wrapper: "bg-gradient-to-br from-[#EC4899] via-[#1a1018] to-[#EC4899] p-[1px] rounded-xl hover:shadow-xl hover:shadow-[#EC4899]/20 transition-all duration-300 hover:-translate-y-2 group",
@@ -220,6 +241,10 @@ const WhatIBuilt = () => {
                       ) : project.theme === "ecommerce" ? (
                         <div className={styles.iconBg}>
                           <ShoppingCart className={`w-6 h-6 ${styles.iconColor}`} />
+                        </div>
+                      ) : project.theme === "futoradrop" ? (
+                        <div className={styles.iconBg}>
+                          <Zap className={`w-6 h-6 ${styles.iconColor}`} />
                         </div>
                       ) : (
                         project.emoji

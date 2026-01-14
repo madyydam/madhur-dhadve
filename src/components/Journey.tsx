@@ -7,7 +7,7 @@ const Journey = () => {
     },
     {
       title: "Education", 
-      description: "Pursuing Software Engineering",
+      description: "First Year — Software Engineering",
       icon: "🎓"
     },
     {

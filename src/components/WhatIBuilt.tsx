@@ -54,7 +54,7 @@ const WhatIBuilt = () => {
       emoji: "📱",
       title: "FutoraOne",
       tagline: "Connect. Build. Grow.",
-      content: "Building an AI-powered social media platform for the tech community where developers can share projects, connect, collaborate, and learn.",
+      content: "AI-powered social platform for developers to connect, collaborate, and grow.",
       link: "https://futora1.vercel.app/",
       hasWebsite: true,
       useIcon: true,

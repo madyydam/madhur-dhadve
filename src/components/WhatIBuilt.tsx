@@ -55,11 +55,10 @@ const WhatIBuilt = () => {
       title: "FutoraOne",
       tagline: "Connect. Build. Grow.",
       content: "Building an AI-powered social media platform for the tech community where developers can share projects, connect, collaborate, and learn.",
-      link: "#",
-      hasWebsite: false,
+      link: "https://futora1.vercel.app/",
+      hasWebsite: true,
       useIcon: true,
-      theme: "futoraone",
-      underConstruction: true
+      theme: "futoraone"
     },
     {
       emoji: "🎨",
@@ -258,12 +257,6 @@ const WhatIBuilt = () => {
                         <p className={styles.role}>
                           {project.tagline}
                         </p>
-                        {project.underConstruction && (
-                          <span className="inline-flex items-center gap-1 text-[10px] bg-amber-500/20 text-amber-400 px-1.5 py-0.5 rounded-full font-medium">
-                            <Construction className="w-3 h-3" />
-                            Under Construction
-                          </span>
-                        )}
                       </div>
                     </div>
                   </div>

@@ -41,7 +41,8 @@ const WhatIBuilt = () => {
       link: "https://futora1.vercel.app/",
       hasWebsite: true,
       useIcon: true,
-      theme: "futoraone"
+      theme: "futoraone",
+      underDevelopment: true
     },
     {
       emoji: "🤖",
@@ -59,7 +60,8 @@ const WhatIBuilt = () => {
       content: "India's invite-only platform to launch products, get real testers, and grow with early users.",
       link: "https://futoradrop.vercel.app/",
       hasWebsite: true,
-      theme: "futoradrop"
+      theme: "futoradrop",
+      underDevelopment: true
     },
     {
       emoji: "⚡",
@@ -69,7 +71,8 @@ const WhatIBuilt = () => {
       link: "https://futoraflow.vercel.app/",
       hasWebsite: true,
       useLogo: "futoraflow",
-      theme: "futoraflow"
+      theme: "futoraflow",
+      underDevelopment: true
     },
     {
       emoji: "🎨",
@@ -210,9 +213,16 @@ const WhatIBuilt = () => {
             return (
               <div
                 key={index}
-                className={styles.wrapper}
+                className={`${styles.wrapper} relative`}
               >
                 <div className={styles.inner}>
+                  {project.underDevelopment && (
+                    <div className="absolute top-3 right-3">
+                      <span className="px-2 py-1 text-[10px] font-semibold rounded-full bg-yellow-500/20 text-yellow-400 border border-yellow-500/30">
+                        Under Development
+                      </span>
+                    </div>
+                  )}
                   <div className="flex items-start gap-4 mb-4">
                     <div className="text-3xl group-hover:scale-110 transition-transform duration-300">
                       {project.useIcon ? (

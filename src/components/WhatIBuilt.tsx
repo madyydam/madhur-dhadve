@@ -1,6 +1,7 @@
-import { ExternalLink, Smartphone, CreditCard, Rocket, Construction, Bot, Palette, ShoppingCart, Zap } from "lucide-react";
+import { ExternalLink, Smartphone, CreditCard, Rocket, Palette, Zap, Workflow } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import futoraGroupLogo from "@/assets/futora-group-logo.png";
+import futoraFlowLogo from "@/assets/futoraflow-logo.png";
 
 const WhatIBuilt = () => {
   const builtProjects = [
@@ -33,15 +34,6 @@ const WhatIBuilt = () => {
       useLogo: true
     },
     {
-      emoji: "🤖",
-      title: "Futora AI",
-      tagline: "Intelligence for Tomorrow",
-      content: "Exploring how AI tools help creators and businesses.",
-      link: "https://futoraai.vercel.app/",
-      hasWebsite: true,
-      theme: "futuraai"
-    },
-    {
       emoji: "🚀",
       title: "FutoraDrop",
       tagline: "Product Launch & User Growth Platform",
@@ -61,6 +53,16 @@ const WhatIBuilt = () => {
       theme: "futoraone"
     },
     {
+      emoji: "⚡",
+      title: "FutoraFlow",
+      tagline: "AI Business Operating System",
+      content: "Fully AI-commanded business operating system.",
+      link: "#",
+      hasWebsite: false,
+      useLogo: "futoraflow",
+      theme: "futoraflow"
+    },
+    {
       emoji: "🎨",
       title: "Velora Creatives",
       tagline: "Creative Design & Strategy",
@@ -69,15 +71,6 @@ const WhatIBuilt = () => {
       hasWebsite: true,
       theme: "velora"
     },
-    {
-      emoji: "🛒",
-      title: "E-Commerce Store",
-      tagline: "Digital Shopping Experience",
-      content: "Practice design and user experience for digital shops.",
-      link: "#",
-      hasWebsite: false,
-      theme: "ecommerce"
-    }
   ];
 
   const getCardStyles = (theme: string) => {
@@ -129,16 +122,16 @@ const WhatIBuilt = () => {
         iconColor: "text-[#22D3EE]"
       };
     }
-    if (theme === "futuraai") {
+    if (theme === "futoraflow") {
       return {
-        wrapper: "bg-gradient-to-br from-[#3B82F6] via-[#0f1729] to-[#3B82F6] p-[1px] rounded-xl hover:shadow-xl hover:shadow-[#3B82F6]/20 transition-all duration-300 hover:-translate-y-2 group",
-        inner: "bg-[#0f1729] rounded-xl p-6 h-full flex flex-col",
+        wrapper: "bg-gradient-to-br from-[#22D3EE] via-[#0d1219] to-[#D946EF] p-[1px] rounded-xl hover:shadow-xl hover:shadow-[#22D3EE]/20 transition-all duration-300 hover:-translate-y-2 group",
+        inner: "bg-[#0d1219] rounded-xl p-6 h-full flex flex-col",
         title: "text-lg font-semibold text-white mb-1",
-        role: "text-xs text-[#3B82F6] font-medium",
+        role: "text-xs text-[#22D3EE] font-medium",
         content: "text-sm text-gray-400 leading-relaxed mb-4 flex-1",
-        button: "w-full bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-white font-semibold",
-        iconBg: "w-10 h-10 rounded-lg bg-[#3B82F6]/20 flex items-center justify-center",
-        iconColor: "text-[#3B82F6]"
+        button: "w-full bg-gradient-to-r from-[#22D3EE] to-[#D946EF] hover:opacity-90 text-white font-semibold",
+        iconBg: "w-10 h-10 rounded-lg bg-[#22D3EE]/20 flex items-center justify-center overflow-hidden",
+        iconColor: "text-[#22D3EE]"
       };
     }
     if (theme === "velora") {
@@ -163,18 +156,6 @@ const WhatIBuilt = () => {
         button: "w-full bg-[#F97316] hover:bg-[#F97316]/90 text-white font-semibold",
         iconBg: "w-10 h-10 rounded-lg bg-[#F97316]/20 flex items-center justify-center",
         iconColor: "text-[#F97316]"
-      };
-    }
-    if (theme === "ecommerce") {
-      return {
-        wrapper: "bg-gradient-to-br from-[#EC4899] via-[#1a1018] to-[#EC4899] p-[1px] rounded-xl hover:shadow-xl hover:shadow-[#EC4899]/20 transition-all duration-300 hover:-translate-y-2 group",
-        inner: "bg-[#1a1018] rounded-xl p-6 h-full flex flex-col",
-        title: "text-lg font-semibold text-white mb-1",
-        role: "text-xs text-[#EC4899] font-medium",
-        content: "text-sm text-gray-400 leading-relaxed mb-4 flex-1",
-        button: "w-full bg-[#EC4899] hover:bg-[#EC4899]/90 text-white font-semibold",
-        iconBg: "w-10 h-10 rounded-lg bg-[#EC4899]/20 flex items-center justify-center",
-        iconColor: "text-[#EC4899]"
       };
     }
     return {
@@ -217,6 +198,10 @@ const WhatIBuilt = () => {
                         <div className={styles.iconBg}>
                           <Smartphone className={`w-6 h-6 ${styles.iconColor}`} />
                         </div>
+                      ) : project.useLogo === "futoraflow" ? (
+                        <div className="w-12 h-12 rounded-lg flex items-center justify-center overflow-hidden">
+                          <img src={futoraFlowLogo} alt="FutoraFlow" className="w-12 h-12 object-contain" />
+                        </div>
                       ) : project.useLogo ? (
                         <div className="w-12 h-12 rounded-lg flex items-center justify-center overflow-hidden">
                           <img src={futoraGroupLogo} alt="Futora Group" className="w-12 h-12 object-contain" />
@@ -229,17 +214,9 @@ const WhatIBuilt = () => {
                         <div className={styles.iconBg}>
                           <Rocket className={`w-6 h-6 ${styles.iconColor}`} />
                         </div>
-                      ) : project.theme === "futuraai" ? (
-                        <div className={styles.iconBg}>
-                          <Bot className={`w-6 h-6 ${styles.iconColor}`} />
-                        </div>
                       ) : project.theme === "velora" ? (
                         <div className={styles.iconBg}>
                           <Palette className={`w-6 h-6 ${styles.iconColor}`} />
-                        </div>
-                      ) : project.theme === "ecommerce" ? (
-                        <div className={styles.iconBg}>
-                          <ShoppingCart className={`w-6 h-6 ${styles.iconColor}`} />
                         </div>
                       ) : project.theme === "futoradrop" ? (
                         <div className={styles.iconBg}>

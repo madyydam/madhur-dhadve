@@ -66,8 +66,8 @@ const WhatIBuilt = () => {
       title: "FutoraFlow",
       tagline: "AI Business Operating System",
       content: "Fully AI-commanded business operating system.",
-      link: "#",
-      hasWebsite: false,
+      link: "https://futoraflow.vercel.app/",
+      hasWebsite: true,
       useLogo: "futoraflow",
       theme: "futoraflow"
     },

@@ -1,4 +1,4 @@
-import { ExternalLink, Smartphone, CreditCard, Rocket, Palette, Zap, Workflow } from "lucide-react";
+import { ExternalLink, Smartphone, CreditCard, Rocket, Palette, Zap, Bot } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import futoraGroupLogo from "@/assets/futora-group-logo.png";
 import futoraFlowLogo from "@/assets/futoraflow-logo.png";
@@ -34,15 +34,6 @@ const WhatIBuilt = () => {
       useLogo: true
     },
     {
-      emoji: "🚀",
-      title: "FutoraDrop",
-      tagline: "Product Launch & User Growth Platform",
-      content: "India's invite-only platform to launch products, get real testers, and grow with early users.",
-      link: "https://futoradrop.vercel.app/",
-      hasWebsite: true,
-      theme: "futoradrop"
-    },
-    {
       emoji: "📱",
       title: "FutoraOne",
       tagline: "Connect. Build. Grow.",
@@ -51,6 +42,24 @@ const WhatIBuilt = () => {
       hasWebsite: true,
       useIcon: true,
       theme: "futoraone"
+    },
+    {
+      emoji: "🤖",
+      title: "Futora AI",
+      tagline: "Intelligence for Tomorrow",
+      content: "Exploring how AI tools help creators and businesses.",
+      link: "https://futoraai.vercel.app/",
+      hasWebsite: true,
+      theme: "futuraai"
+    },
+    {
+      emoji: "🚀",
+      title: "FutoraDrop",
+      tagline: "Product Launch & User Growth Platform",
+      content: "India's invite-only platform to launch products, get real testers, and grow with early users.",
+      link: "https://futoradrop.vercel.app/",
+      hasWebsite: true,
+      theme: "futoradrop"
     },
     {
       emoji: "⚡",
@@ -120,6 +129,18 @@ const WhatIBuilt = () => {
         button: "w-full bg-[#22D3EE] hover:bg-[#22D3EE]/90 text-[#0a1628] font-semibold",
         iconBg: "w-10 h-10 rounded-lg bg-[#22D3EE]/20 flex items-center justify-center overflow-hidden",
         iconColor: "text-[#22D3EE]"
+      };
+    }
+    if (theme === "futuraai") {
+      return {
+        wrapper: "bg-gradient-to-br from-[#3B82F6] via-[#0f1729] to-[#3B82F6] p-[1px] rounded-xl hover:shadow-xl hover:shadow-[#3B82F6]/20 transition-all duration-300 hover:-translate-y-2 group",
+        inner: "bg-[#0f1729] rounded-xl p-6 h-full flex flex-col",
+        title: "text-lg font-semibold text-white mb-1",
+        role: "text-xs text-[#3B82F6] font-medium",
+        content: "text-sm text-gray-400 leading-relaxed mb-4 flex-1",
+        button: "w-full bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-white font-semibold",
+        iconBg: "w-10 h-10 rounded-lg bg-[#3B82F6]/20 flex items-center justify-center",
+        iconColor: "text-[#3B82F6]"
       };
     }
     if (theme === "futoraflow") {
@@ -221,6 +242,10 @@ const WhatIBuilt = () => {
                       ) : project.theme === "futoradrop" ? (
                         <div className={styles.iconBg}>
                           <Zap className={`w-6 h-6 ${styles.iconColor}`} />
+                        </div>
+                      ) : project.theme === "futuraai" ? (
+                        <div className={styles.iconBg}>
+                          <Bot className={`w-6 h-6 ${styles.iconColor}`} />
                         </div>
                       ) : (
                         project.emoji

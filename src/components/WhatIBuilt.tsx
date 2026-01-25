@@ -16,7 +16,7 @@ const WhatIBuilt = () => {
     },
     {
       emoji: "💳",
-      title: "FutoraPay",
+      title: "FutoraWallet",
       tagline: "Intelligent Money Management",
       content: "AI-powered smart payments and financial management platform.",
       link: "https://futorapay.vercel.app/",
@@ -75,13 +75,13 @@ const WhatIBuilt = () => {
       underDevelopment: true
     },
     {
-      emoji: "🎨",
-      title: "Velora Creatives",
-      tagline: "Creative Design & Strategy",
-      content: "Helping brands grow with creative design and strategy.",
-      link: "https://veloracreative.vercel.app/",
+      emoji: "💰",
+      title: "FutoraPay",
+      tagline: "Advanced Payment Platform",
+      content: "Next-gen payment app for seamless, secure, and smart transactions.",
+      link: "https://futorawallet.vercel.app/",
       hasWebsite: true,
-      theme: "velora"
+      theme: "futorapay2"
     },
   ];
 
@@ -158,16 +158,16 @@ const WhatIBuilt = () => {
         iconColor: "text-[#22D3EE]"
       };
     }
-    if (theme === "velora") {
+    if (theme === "futorapay2") {
       return {
-        wrapper: "bg-gradient-to-br from-[#EAB308] via-[#1a1814] to-[#EAB308] p-[1px] rounded-xl hover:shadow-xl hover:shadow-[#EAB308]/20 transition-all duration-300 hover:-translate-y-2 group",
-        inner: "bg-[#1a1814] rounded-xl p-6 h-full flex flex-col",
+        wrapper: "bg-gradient-to-br from-[#10B981] via-[#0d1117] to-[#10B981] p-[1px] rounded-xl hover:shadow-xl hover:shadow-[#10B981]/20 transition-all duration-300 hover:-translate-y-2 group",
+        inner: "bg-[#0d1117] rounded-xl p-6 h-full flex flex-col",
         title: "text-lg font-semibold text-white mb-1",
-        role: "text-xs text-[#EAB308] font-medium",
+        role: "text-xs text-[#10B981] font-medium",
         content: "text-sm text-gray-400 leading-relaxed mb-4 flex-1",
-        button: "w-full bg-[#EAB308] hover:bg-[#EAB308]/90 text-[#1a1814] font-semibold",
-        iconBg: "w-10 h-10 rounded-lg bg-[#EAB308]/20 flex items-center justify-center",
-        iconColor: "text-[#EAB308]"
+        button: "w-full bg-[#10B981] hover:bg-[#10B981]/90 text-white font-semibold",
+        iconBg: "w-10 h-10 rounded-lg bg-[#10B981]/20 flex items-center justify-center",
+        iconColor: "text-[#10B981]"
       };
     }
     if (theme === "futoradrop") {
@@ -245,9 +245,9 @@ const WhatIBuilt = () => {
                         <div className={styles.iconBg}>
                           <Rocket className={`w-6 h-6 ${styles.iconColor}`} />
                         </div>
-                      ) : project.theme === "velora" ? (
+                      ) : project.theme === "futorapay2" ? (
                         <div className={styles.iconBg}>
-                          <Palette className={`w-6 h-6 ${styles.iconColor}`} />
+                          <CreditCard className={`w-6 h-6 ${styles.iconColor}`} />
                         </div>
                       ) : project.theme === "futoradrop" ? (
                         <div className={styles.iconBg}>

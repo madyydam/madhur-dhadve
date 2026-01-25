@@ -11,6 +11,13 @@ const WorkExperience = () => {
       website: "https://www.gadgetdash.in/"
     },
     {
+      title: "Velora Creatives",
+      role: "🎨 Co-Founder",
+      description: "Creative agency helping brands grow with innovative design and marketing strategies.",
+      icon: "🎨",
+      website: "https://veloracreative.vercel.app/"
+    },
+    {
       title: "TNA Marketing Agency",
       description: "Worked as a Video Editor, managing and editing client projects.",
       icon: "🎬"

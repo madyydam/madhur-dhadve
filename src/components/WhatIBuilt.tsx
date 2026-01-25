@@ -2,6 +2,7 @@ import { ExternalLink, Smartphone, CreditCard, Rocket, Palette, Zap, Bot } from 
 import { Button } from "@/components/ui/button";
 import futoraGroupLogo from "@/assets/futora-group-logo.png";
 import futoraFlowLogo from "@/assets/futoraflow-logo.png";
+import futoraPayLogo from "@/assets/futorapay-logo.jpg";
 
 const WhatIBuilt = () => {
   const builtProjects = [
@@ -81,7 +82,8 @@ const WhatIBuilt = () => {
       content: "Next-gen payment app for seamless, secure, and smart transactions.",
       link: "https://futorawallet.vercel.app/",
       hasWebsite: true,
-      theme: "futorapay2"
+      theme: "futorapay2",
+      useLogo: "futorapay"
     },
   ];
 
@@ -245,9 +247,9 @@ const WhatIBuilt = () => {
                         <div className={styles.iconBg}>
                           <Rocket className={`w-6 h-6 ${styles.iconColor}`} />
                         </div>
-                      ) : project.theme === "futorapay2" ? (
-                        <div className={styles.iconBg}>
-                          <CreditCard className={`w-6 h-6 ${styles.iconColor}`} />
+                      ) : project.useLogo === "futorapay" ? (
+                        <div className="w-12 h-12 rounded-lg flex items-center justify-center overflow-hidden">
+                          <img src={futoraPayLogo} alt="FutoraPay" className="w-12 h-12 object-contain" />
                         </div>
                       ) : project.theme === "futoradrop" ? (
                         <div className={styles.iconBg}>

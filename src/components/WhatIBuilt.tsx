@@ -235,6 +235,10 @@ const WhatIBuilt = () => {
                         <div className="w-12 h-12 rounded-lg flex items-center justify-center overflow-hidden">
                           <img src={futoraFlowLogo} alt="FutoraFlow" className="w-12 h-12 object-contain" />
                         </div>
+                      ) : project.useLogo === "futorapay" ? (
+                        <div className="w-12 h-12 rounded-lg flex items-center justify-center overflow-hidden">
+                          <img src={futoraPayLogo} alt="FutoraPay" className="w-12 h-12 object-contain" />
+                        </div>
                       ) : project.useLogo ? (
                         <div className="w-12 h-12 rounded-lg flex items-center justify-center overflow-hidden">
                           <img src={futoraGroupLogo} alt="Futora Group" className="w-12 h-12 object-contain" />
@@ -246,10 +250,6 @@ const WhatIBuilt = () => {
                       ) : project.theme === "futoralift" ? (
                         <div className={styles.iconBg}>
                           <Rocket className={`w-6 h-6 ${styles.iconColor}`} />
-                        </div>
-                      ) : project.useLogo === "futorapay" ? (
-                        <div className="w-12 h-12 rounded-lg flex items-center justify-center overflow-hidden">
-                          <img src={futoraPayLogo} alt="FutoraPay" className="w-12 h-12 object-contain" />
                         </div>
                       ) : project.theme === "futoradrop" ? (
                         <div className={styles.iconBg}>

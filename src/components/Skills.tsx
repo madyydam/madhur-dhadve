@@ -41,7 +41,7 @@ const SkillCard = ({ skill, index }: { skill: any, index: number }) => {
       whileHover={{ y: -5 }}
       className="group relative"
     >
-      <div className="relative bg-white border border-blue-100 rounded-2xl p-4 h-full shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+      <div className="relative bg-white border border-slate-200 rounded-xl p-4 h-full shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between">
         <div className="flex gap-4">
           <div className="flex-shrink-0 w-12 h-12 bg-blue-50 text-blue-500 rounded-xl flex items-center justify-center group-hover:bg-blue-500 group-hover:text-white transition-colors duration-300">
             <Icon className="h-6 w-6" />
@@ -54,11 +54,10 @@ const SkillCard = ({ skill, index }: { skill: any, index: number }) => {
               {skillDescriptions[skill.name as keyof typeof skillDescriptions]}
             </p>
             <div className="mt-3">
-              <span className={`text-[9px] font-bold px-3 py-1 rounded-lg uppercase tracking-wider ${
-                skill.level === 'Learning'
+              <span className={`text-[9px] font-bold px-3 py-1 rounded-lg uppercase tracking-wider ${skill.level === 'Learning'
                   ? 'bg-amber-50 text-amber-600'
                   : 'bg-emerald-50 text-emerald-600'
-              }`}>
+                }`}>
                 {skill.level}
               </span>
             </div>

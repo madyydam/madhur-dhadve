@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import {
   Code, Palette, Video, TrendingUp, Target, Youtube,
-  Brain, Shield, Layers, ExternalLink, Sparkles
+  Brain, Shield, Layers, ExternalLink, Sparkles, Wrench
 } from "lucide-react";
 
 const skills = [
@@ -32,89 +32,51 @@ const skillDescriptions = {
 const SkillCard = ({ skill, index }: { skill: any, index: number }) => {
   const Icon = skill.icon;
 
-  // Wave entry + Scroll focus animation variants
-  const itemVariants = {
-    hidden: { opacity: 0.3, y: 30, scale: 0.95 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.8,
-        ease: [0.22, 1, 0.36, 1] as any,
-        delay: index * 0.1
-      }
-    }
-  };
-
   return (
     <motion.div
-      variants={itemVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: false, amount: 0.4 }}
-      whileHover={{
-        y: -10,
-        scale: 1.02,
-        transition: { duration: 0.3, ease: "easeOut" }
-      }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.05 }}
+      whileHover={{ y: -5 }}
       className="group relative"
     >
-      <div className="absolute -inset-1.5 bg-gradient-to-r from-blue-100/40 to-indigo-100/40 rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl z-0" />
-
-      <div className="relative bg-white border border-slate-100 rounded-[1.8rem] p-6 h-full shadow-[0_15px_35px_-20px_rgba(0,0,0,0.05)] group-hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.1)] group-hover:border-blue-200/60 transition-all duration-500 z-10 flex flex-col justify-between overflow-hidden">
-
-        <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50/20 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-1000 blur-3xl opacity-50" />
-
-        <div className="relative">
-          <div className="flex justify-between items-start mb-6">
-            <motion.div
-              whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
-              transition={{ duration: 0.4 }}
-              className="p-3 bg-blue-50 text-blue-500 rounded-xl group-hover:bg-blue-500 group-hover:text-white transition-all duration-300 shadow-sm"
-            >
-              <Icon className="h-6 w-6" />
-            </motion.div>
-
-            <motion.span
-              animate={{ opacity: [0.5, 1, 0.5] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="text-[9px] font-black tracking-[0.2em] text-slate-300 uppercase"
-            >
-              {skill.category}
-            </motion.span>
+      <div className="relative bg-white border border-blue-100 rounded-2xl p-4 h-full shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+        <div className="flex gap-4">
+          <div className="flex-shrink-0 w-12 h-12 bg-blue-50 text-blue-500 rounded-xl flex items-center justify-center group-hover:bg-blue-500 group-hover:text-white transition-colors duration-300">
+            <Icon className="h-6 w-6" />
           </div>
-
-          <h3 className="text-xl font-black text-slate-800 mb-2 group-hover:text-blue-600 transition-colors duration-300 tracking-tight">
-            {skill.name}
-          </h3>
-
-          <p className="text-sm font-medium text-slate-400 leading-relaxed mb-6 group-hover:text-slate-500 transition-colors duration-300 italic">
-            {skillDescriptions[skill.name as keyof typeof skillDescriptions]}
-          </p>
+          <div className="flex-grow">
+            <h3 className="text-base font-bold text-slate-800 group-hover:text-blue-600 transition-colors">
+              {skill.name}
+            </h3>
+            <p className="text-[11px] text-slate-500 leading-tight mt-1 line-clamp-2">
+              {skillDescriptions[skill.name as keyof typeof skillDescriptions]}
+            </p>
+            <div className="mt-3">
+              <span className={`text-[9px] font-bold px-3 py-1 rounded-lg uppercase tracking-wider ${
+                skill.level === 'Learning'
+                  ? 'bg-amber-50 text-amber-600'
+                  : 'bg-emerald-50 text-emerald-600'
+              }`}>
+                {skill.level}
+              </span>
+            </div>
+          </div>
         </div>
 
-        <div className="flex justify-between items-center mt-auto pt-5 border-t border-slate-50">
-          <span className={`text-[10px] font-black uppercase tracking-[0.15em] px-5 py-2 rounded-full shadow-sm transition-all duration-500 ${skill.level === 'Learning'
-            ? 'bg-amber-50 text-amber-600 border border-amber-100/30 group-hover:bg-amber-500 group-hover:text-white group-hover:scale-105'
-            : 'bg-emerald-50 text-emerald-600 border border-emerald-100/30 group-hover:bg-emerald-500 group-hover:text-white group-hover:scale-105'
-            }`}>
-            {skill.level}
-          </span>
-
-          {skill.name === "Video Editing" && (
-            <motion.a
-              whileHover={{ scale: 1.1, x: 3 }}
-              whileTap={{ scale: 0.95 }}
+        {skill.name === "Video Editing" && (
+          <div className="mt-4">
+            <a
               href="https://drive.google.com/drive/folders/11huGanzy18lBr_BwahH3WEeOPyoxn1Di"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-500 flex items-center gap-1.5 text-xs font-black tracking-tight hover:underline"
+              className="inline-flex items-center justify-center gap-2 bg-[#121820] text-white px-4 py-2 rounded-xl hover:bg-blue-600 transition-all duration-300 font-bold text-[10px] w-full shadow-lg"
             >
-              Portfolio <ExternalLink className="h-3 w-3" />
-            </motion.a>
-          )}
-        </div>
+              View My Portfolio <ExternalLink className="h-3 w-3" />
+            </a>
+          </div>
+        )}
       </div>
     </motion.div>
   );
@@ -127,29 +89,16 @@ const Skills = () => {
     <section
       id="skills"
       ref={containerRef}
-      className="py-12 px-6 bg-white relative overflow-hidden"
+      className="py-12 px-6 bg-[#f8fafc] relative overflow-hidden"
     >
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-slate-100 to-transparent" />
-
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-10 relative">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-[9px] font-black uppercase tracking-[0.3em] text-blue-500 mb-3 shadow-sm"
-          >
-            <Sparkles className="w-2.5 h-2.5" />
-            Domain Expertise
-          </motion.div>
-
-          <h2 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tighter uppercase mb-2">
-            Skills <span className="text-blue-500">&</span> Expertise
-          </h2>
-          <div className="h-1 w-16 bg-blue-500 mx-auto rounded-full mb-4" />
-          <p className="max-w-2xl mx-auto text-slate-400 font-bold uppercase text-[9px] md:text-[10px] tracking-[0.3em]">
-            Bridging Design, Code, and Marketing
-          </p>
+        <div className="flex flex-col items-center justify-center mb-10 text-center">
+          <div className="flex items-center gap-3 mb-2">
+            <Wrench className="w-8 h-8 text-slate-700" />
+            <h2 className="text-3xl md:text-4xl font-black text-slate-800 tracking-tighter">
+              Skills <span className="text-blue-600">&</span> Expertise
+            </h2>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

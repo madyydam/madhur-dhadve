@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import ThemeToggle from "./ThemeToggle";
+
 import { cn } from "@/lib/utils";
 
 const Navigation = () => {
@@ -110,7 +110,7 @@ const Navigation = () => {
 
             {/* Actions */}
             <div className="flex items-center gap-3">
-              <ThemeToggle />
+
               <Button
                 variant="ghost"
                 size="icon"

@@ -4,6 +4,7 @@ import WhatIBuilt from "@/components/WhatIBuilt";
 import About from "@/components/About";
 import Journey from "@/components/Journey";
 import Skills from "@/components/Skills";
+import TechStack from "@/components/TechStack";
 import WorkExperience from "@/components/WorkExperience";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -17,6 +18,7 @@ const Index = () => {
       <Hero />
       <WhatIBuilt />
       <Skills />
+      <TechStack />
       <Journey />
       <WorkExperience />
       <About />

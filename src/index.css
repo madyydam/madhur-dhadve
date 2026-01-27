@@ -1,4 +1,13 @@
 @tailwind base;
+
+:root {
+  --icon-invert: 0;
+}
+
+.dark {
+  --icon-invert: 1;
+}
+
 @tailwind components;
 @tailwind utilities;
 

@@ -62,7 +62,7 @@ const SkillCard = ({ skill, index }: { skill: any, index: number }) => {
     >
       <div className="absolute -inset-1.5 bg-gradient-to-r from-blue-100/40 to-indigo-100/40 rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl z-0" />
 
-      <div className="relative bg-white border border-slate-100 rounded-[2.2rem] p-8 h-full shadow-[0_15px_35px_-20px_rgba(0,0,0,0.05)] group-hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.1)] group-hover:border-blue-200/60 transition-all duration-500 z-10 flex flex-col justify-between overflow-hidden">
+      <div className="relative bg-white border border-slate-100 rounded-[1.8rem] p-6 h-full shadow-[0_15px_35px_-20px_rgba(0,0,0,0.05)] group-hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.1)] group-hover:border-blue-200/60 transition-all duration-500 z-10 flex flex-col justify-between overflow-hidden">
 
         <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50/20 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-1000 blur-3xl opacity-50" />
 
@@ -71,7 +71,7 @@ const SkillCard = ({ skill, index }: { skill: any, index: number }) => {
             <motion.div
               whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
               transition={{ duration: 0.4 }}
-              className="p-4 bg-blue-50 text-blue-500 rounded-2xl group-hover:bg-blue-500 group-hover:text-white transition-all duration-300 shadow-sm"
+              className="p-3 bg-blue-50 text-blue-500 rounded-xl group-hover:bg-blue-500 group-hover:text-white transition-all duration-300 shadow-sm"
             >
               <Icon className="h-6 w-6" />
             </motion.div>
@@ -96,8 +96,8 @@ const SkillCard = ({ skill, index }: { skill: any, index: number }) => {
 
         <div className="flex justify-between items-center mt-auto pt-5 border-t border-slate-50">
           <span className={`text-[10px] font-black uppercase tracking-[0.15em] px-5 py-2 rounded-full shadow-sm transition-all duration-500 ${skill.level === 'Learning'
-              ? 'bg-amber-50 text-amber-600 border border-amber-100/30 group-hover:bg-amber-500 group-hover:text-white group-hover:scale-105'
-              : 'bg-emerald-50 text-emerald-600 border border-emerald-100/30 group-hover:bg-emerald-500 group-hover:text-white group-hover:scale-105'
+            ? 'bg-amber-50 text-amber-600 border border-amber-100/30 group-hover:bg-amber-500 group-hover:text-white group-hover:scale-105'
+            : 'bg-emerald-50 text-emerald-600 border border-emerald-100/30 group-hover:bg-emerald-500 group-hover:text-white group-hover:scale-105'
             }`}>
             {skill.level}
           </span>
@@ -127,27 +127,27 @@ const Skills = () => {
     <section
       id="skills"
       ref={containerRef}
-      className="py-24 px-6 bg-white relative overflow-hidden"
+      className="py-12 px-6 bg-white relative overflow-hidden"
     >
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-slate-100 to-transparent" />
 
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16 relative">
+        <div className="text-center mb-10 relative">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-[10px] font-black uppercase tracking-[0.3em] text-blue-500 mb-4 shadow-sm"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-[9px] font-black uppercase tracking-[0.3em] text-blue-500 mb-3 shadow-sm"
           >
-            <Sparkles className="w-3 h-3" />
+            <Sparkles className="w-2.5 h-2.5" />
             Domain Expertise
           </motion.div>
 
-          <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter uppercase mb-4">
+          <h2 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tighter uppercase mb-2">
             Skills <span className="text-blue-500">&</span> Expertise
           </h2>
-          <div className="h-1.5 w-20 bg-blue-500 mx-auto rounded-full mb-6" />
-          <p className="max-w-2xl mx-auto text-slate-400 font-bold uppercase text-[10px] md:text-xs tracking-[0.3em]">
+          <div className="h-1 w-16 bg-blue-500 mx-auto rounded-full mb-4" />
+          <p className="max-w-2xl mx-auto text-slate-400 font-bold uppercase text-[9px] md:text-[10px] tracking-[0.3em]">
             Bridging Design, Code, and Marketing
           </p>
         </div>
@@ -158,28 +158,6 @@ const Skills = () => {
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.8 }}
-          className="mt-20 text-center"
-        >
-          <a
-            href="https://drive.google.com/drive/folders/11huGanzy18lBr_BwahH3WEeOPyoxn1Di"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative inline-flex items-center gap-3 bg-slate-900 text-white px-10 py-5 rounded-2xl hover:bg-blue-600 transition-all duration-500 font-black uppercase tracking-widest text-xs shadow-2xl hover:shadow-blue-500/20"
-          >
-            <span className="relative z-10">View Full Portfolio</span>
-            <motion.div
-              animate={{ x: [0, 5, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            >
-              <ExternalLink className="h-4 w-4 relative z-10" />
-            </motion.div>
-            <div className="absolute inset-0 bg-blue-500 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 rounded-2xl" />
-          </a>
-        </motion.div>
       </div>
     </section>
   );

@@ -9,20 +9,44 @@ import WorkExperience from "@/components/WorkExperience";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
+import SectionContainer from "@/components/SectionContainer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background text-foreground transition-colors duration-500">
       <Navigation />
       <ScrollProgress />
+
       <Hero />
-      <WhatIBuilt />
-      <Skills />
-      <TechStack />
-      <Journey />
-      <WorkExperience />
-      <About />
-      <Contact />
+
+      <SectionContainer>
+        <WhatIBuilt />
+      </SectionContainer>
+
+      <SectionContainer>
+        <TechStack />
+      </SectionContainer>
+
+      <SectionContainer>
+        <Skills />
+      </SectionContainer>
+
+      <SectionContainer>
+        <Journey />
+      </SectionContainer>
+
+      <SectionContainer>
+        <WorkExperience />
+      </SectionContainer>
+
+      <SectionContainer>
+        <About />
+      </SectionContainer>
+
+      <SectionContainer>
+        <Contact />
+      </SectionContainer>
+
       <Footer />
     </div>
   );

@@ -200,15 +200,15 @@ const WhatIBuilt = () => {
     <section id="built" className="py-20 px-6 border-t border-section-border relative">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-accent-blue-light/20 to-transparent"></div>
-      
+
       <div className="max-w-6xl mx-auto relative">
         <div className="text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-foreground to-accent-blue bg-clip-text text-transparent">
-            🚀 What I've Built
+            🚀 Explore the Future
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-accent-blue to-accent-blue-light mx-auto mb-12 rounded-full"></div>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {builtProjects.map((project, index) => {
             const styles = getCardStyles(project.theme);
@@ -277,9 +277,9 @@ const WhatIBuilt = () => {
                   <p className={styles.content}>
                     {project.content}
                   </p>
-                  
+
                   {project.hasWebsite && (
-                    <Button 
+                    <Button
                       onClick={() => window.open(project.link, '_blank')}
                       size="sm"
                       className={styles.button}

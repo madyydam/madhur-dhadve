@@ -12,16 +12,16 @@ const Hero = () => {
         {/* Decorative elements */}
         <div className="absolute top-20 left-10 w-20 h-20 bg-accent-blue/10 rounded-full blur-xl"></div>
         <div className="absolute bottom-32 right-16 w-32 h-32 bg-accent-blue/5 rounded-full blur-2xl"></div>
-        
+
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground to-accent-blue bg-clip-text text-transparent">
           Madhur Dhadve
         </h1>
-        
+
         <p className="text-lg md:text-xl lg:text-2xl text-text-secondary mb-12 max-w-3xl mx-auto leading-relaxed">
           A curious learner exploring technology, creativity, and business
         </p>
-        
-        <Button 
+
+        <Button
           onClick={scrollToBuilt}
           className="bg-gradient-to-r from-foreground to-accent-blue text-white hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 group"
           size="lg"

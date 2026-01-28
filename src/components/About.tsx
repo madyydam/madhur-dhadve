@@ -22,7 +22,7 @@ const aboutCards: AboutCard[] = [
   {
     emoji: "🌱",
     title: "Looking Ahead",
-    content: "This portfolio isn't just a showcase of my work — it's a journal of growth. It reflects what I've done, what I'm learning today, and the projects I'll build tomorrow."
+    content: "This portfolio isn't just a showcase of my work it's a journal of growth. It reflects what I've done, what I'm learning today, and the projects I'll build tomorrow."
   }
 ];
 

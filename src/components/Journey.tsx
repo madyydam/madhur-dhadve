@@ -24,7 +24,7 @@ const journeySteps = [
   {
     year: "EXPERTISE",
     title: "SKILLS PRACTICED",
-    description: "Web Design, Graphic Design, Video Editing, Digital Marketing",
+    description: "Web Development, Graphic Design, Video Editing, Digital Marketing",
     icon: "🛠️",
   },
   {

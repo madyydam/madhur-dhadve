@@ -6,19 +6,19 @@ import {
 } from "lucide-react";
 
 const skills = [
-  { name: "Web Design", icon: Code, level: "Intermediate", category: "Design" },
+  { name: "Web Development", icon: Code, level: "Intermediate", category: "Design" },
   { name: "Graphic Design", icon: Palette, level: "Intermediate", category: "Design" },
   { name: "Video Editing", icon: Video, level: "Intermediate", category: "Content" },
   { name: "Digital Marketing", icon: TrendingUp, level: "Intermediate", category: "Growth" },
   { name: "Meta Ads", icon: Target, level: "Intermediate", category: "Growth" },
-  { name: "Content Creation (YouTube)", icon: Youtube, level: "Intermediate", category: "Content" },
-  { name: "AI", icon: Brain, level: "Learning", category: "Tech" },
+  { name: "AI", icon: Brain, level: "Intermediate", category: "Tech" },
   { name: "Cybersecurity", icon: Shield, level: "Learning", category: "Tech" },
   { name: "Full-Stack Development", icon: Layers, level: "Learning", category: "Tech" },
+  { name: "Content Creation (YouTube)", icon: Youtube, level: "Intermediate", category: "Content" },
 ];
 
 const skillDescriptions = {
-  "Web Design": "Designed responsive and user-friendly websites",
+  "Web Development": "Designed responsive and user-friendly websites",
   "Graphic Design": "Created engaging brand visuals and social media creatives",
   "Video Editing": "Edited over 50+ commercial reels",
   "Digital Marketing": "Executed campaigns to boost online reach and engagement",
@@ -55,8 +55,8 @@ const SkillCard = ({ skill, index }: { skill: any, index: number }) => {
             </p>
             <div className="mt-3">
               <span className={`text-[9px] font-bold px-3 py-1 rounded-lg uppercase tracking-wider ${skill.level === 'Learning'
-                  ? 'bg-amber-50 text-amber-600'
-                  : 'bg-emerald-50 text-emerald-600'
+                ? 'bg-amber-50 text-amber-600'
+                : 'bg-emerald-50 text-emerald-600'
                 }`}>
                 {skill.level}
               </span>

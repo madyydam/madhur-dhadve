@@ -146,7 +146,7 @@ const ExperienceCard = ({ exp, index, scrollProgress, windowWidth, totalCards }:
               className="w-full bg-gray-900 hover:bg-accent-blue text-white rounded-2xl h-12 md:h-14 text-[11px] md:text-[13px] font-black uppercase tracking-[0.15em] transition-all duration-300 shadow-xl shadow-gray-200 hover:shadow-accent-blue/20"
             >
               <a href={exp.website} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2.5 group/btn">
-                Launch Project
+                View Website
                 <ArrowRight className="w-4 md:w-5 h-4 md:h-5 group-hover/btn:translate-x-1 transition-transform" />
               </a>
             </Button>

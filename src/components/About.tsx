@@ -167,7 +167,7 @@ const TiltCard = ({ card, index }: { card: AboutCard; index: number }) => {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
-      className="h-full"
+      className="h-full will-change-transform"
     >
       <motion.div
         style={{
@@ -181,7 +181,7 @@ const TiltCard = ({ card, index }: { card: AboutCard; index: number }) => {
         }}
         animate={{ z: isHovered && isMouse ? 50 : 0 }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
-        className="relative h-full rounded-2xl md:rounded-3xl overflow-hidden group"
+        className="relative h-full rounded-2xl md:rounded-3xl overflow-hidden group will-change-transform"
       >
         {/* Animated gradient border */}
         <motion.div
@@ -190,10 +190,10 @@ const TiltCard = ({ card, index }: { card: AboutCard; index: number }) => {
           className="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity"
           style={{
             background: 'conic-gradient(from 0deg, rgba(96,165,250,0.3), rgba(147,197,253,0.3), rgba(59,130,246,0.3), rgba(96,165,250,0.3))',
-            filter: 'blur(20px)',
+            filter: isMobile ? 'none' : 'blur(20px)',
           }}
         />
-        <div className="absolute inset-[2px] bg-white/70 backdrop-blur-2xl rounded-2xl md:rounded-3xl z-10" />
+        <div className={`absolute inset-[2px] bg-white/70 ${isMobile ? '' : 'backdrop-blur-2xl'} rounded-2xl md:rounded-3xl z-10`} />
         <div className="absolute inset-0 bg-gradient-radial from-accent-blue/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
         <div className="relative p-6 md:p-8 h-full flex flex-col z-20" style={{ transform: "translateZ(40px)" }}>
           <motion.div
@@ -238,6 +238,16 @@ const TiltCard = ({ card, index }: { card: AboutCard; index: number }) => {
   );
 };
 
+// Extracted Orb component to safely use hooks
+const Orb = ({ orb, scrollYProgress }: { orb: any, scrollYProgress: any }) => {
+  const scrollY = useTransform(scrollYProgress, orb.scrollRange, orb.yRange);
+  return (
+    <motion.div style={{ y: scrollY }} className="will-change-transform">
+      <FloatingOrb {...orb} />
+    </motion.div>
+  );
+};
+
 const About = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
@@ -247,7 +257,7 @@ const About = () => {
     offset: ["start end", "end start"]
   });
 
-  const orbCount = isMobile ? 5 : 12;
+  const orbCount = isMobile ? 3 : 12;
   const orbs = Array.from({ length: orbCount }).map(() => ({
     delay: Math.random() * 2,
     size: isMobile ? 60 + Math.random() * 40 : 80 + Math.random() * 70,
@@ -265,17 +275,14 @@ const About = () => {
     top: `${10 + Math.random() * 80}%`
   }));
 
+
+
   return (
     <section ref={sectionRef} id="about" className="relative py-16 md:py-24 px-4 md:px-6 overflow-hidden bg-gradient-to-b from-gray-50/50 to-white">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {orbs.map((orb, i) => {
-          const scrollY = useTransform(scrollYProgress, orb.scrollRange, orb.yRange);
-          return (
-            <motion.div key={`orb-${i}`} style={{ y: scrollY }}>
-              <FloatingOrb {...orb} />
-            </motion.div>
-          );
-        })}
+        {orbs.map((orb, i) => (
+          <Orb key={`orb-${i}`} orb={orb} scrollYProgress={scrollYProgress} />
+        ))}
         {sparkles.map((sparkle, i) => (
           <SparkleParticle key={`sparkle-${i}`} {...sparkle} />
         ))}

@@ -74,19 +74,9 @@ const TechStack = () => {
     <section id="tech" className="py-10 px-4 bg-background relative overflow-hidden">
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent-blue/10 border border-accent-blue/20 text-[9px] font-black uppercase tracking-[0.2em] text-accent-blue mb-2 shadow-sm"
-          >
-            <Sparkles className="w-3 h-3" />
-            Verified Stack
-          </motion.div>
-          <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter leading-tight mb-1 bg-gradient-to-r from-foreground to-accent-blue bg-clip-text text-transparent">
+          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter leading-tight mb-1 bg-gradient-to-r from-foreground to-accent-blue bg-clip-text text-transparent">
             Technologies <span className="italic">I Use</span>
           </h2>
-          <p className="text-gray-400 font-bold uppercase text-[8px] md:text-[10px] tracking-[0.3em]">Clean, Honest, Interview-Proof</p>
         </div>
 
         <TooltipProvider>

@@ -99,6 +99,8 @@ const Contact = () => {
     offset: ["start end", "end start"]
   });
 
+  const isMouse = typeof window !== 'undefined' && window.matchMedia('(pointer: fine)').matches;
+
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: { name: "", email: "", contactNumber: "", message: "" }
@@ -147,8 +149,16 @@ const Contact = () => {
   return (
     <section ref={sectionRef} id="contact" className="relative py-12 md:py-16 px-4 md:px-6 overflow-hidden bg-gradient-to-b from-white via-gray-50/50 to-white">
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.05, 0.1, 0.05] }} transition={{ duration: 8, repeat: Infinity }} className="absolute top-10 right-10 w-64 h-64 bg-accent-blue rounded-full blur-[80px]" />
-        <motion.div animate={{ scale: [1.2, 1, 1.2], opacity: [0.05, 0.1, 0.05] }} transition={{ duration: 10, repeat: Infinity }} className="absolute bottom-10 left-10 w-64 h-64 bg-purple-500 rounded-full blur-[80px]" />
+        <motion.div
+          animate={isMouse ? { scale: [1, 1.2, 1], opacity: [0.05, 0.1, 0.05] } : { opacity: 0.05 }}
+          transition={{ duration: 8, repeat: Infinity }}
+          className="absolute top-10 right-10 w-64 h-64 bg-accent-blue rounded-full blur-3xl md:blur-[80px] will-change-transform"
+        />
+        <motion.div
+          animate={isMouse ? { scale: [1.2, 1, 1.2], opacity: [0.05, 0.1, 0.05] } : { opacity: 0.05 }}
+          transition={{ duration: 10, repeat: Infinity }}
+          className="absolute bottom-10 left-10 w-64 h-64 bg-purple-500 rounded-full blur-3xl md:blur-[80px] will-change-transform"
+        />
       </div>
       <div className="max-w-6xl mx-auto relative z-10">
         <motion.div style={{ y: headerY, opacity: headerOpacity }} className="text-center mb-8 md:mb-12">

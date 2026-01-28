@@ -197,7 +197,7 @@ const WhatIBuilt = () => {
   };
 
   return (
-    <section id="built" className="py-20 px-6 border-t border-section-border relative">
+    <section id="projects" className="py-20 px-6 border-t border-section-border relative">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-accent-blue-light/20 to-transparent"></div>
 

@@ -1,0 +1,295 @@
+import { useRef, useState, useEffect } from "react";
+import { ChevronDown } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { motion, useMotionValue, useTransform, useSpring, useScroll } from "framer-motion";
+
+// Floating badge component with orbital motion - text always stays upright
+const FloatingBadge = ({ text, delay, orbitRadius, startAngle }: { text: string; delay: number; orbitRadius: number; startAngle: number }) => {
+  return (
+    <div style={{ position: 'absolute', left: '50%', top: '50%', pointerEvents: 'none' }}>
+      <motion.div
+        initial={{ opacity: 0, scale: 0, rotate: startAngle }}
+        animate={{
+          opacity: [0, 1, 1],
+          scale: [0, 1, 1],
+          rotate: startAngle + 360
+        }}
+        transition={{
+          opacity: { duration: 0.6, delay },
+          scale: { duration: 0.6, delay, type: "spring", stiffness: 200 },
+          rotate: { duration: 25, repeat: Infinity, ease: "linear", delay }
+        }}
+        style={{
+          position: 'absolute',
+          width: orbitRadius * 2,
+          height: orbitRadius * 2,
+          left: -orbitRadius,
+          top: -orbitRadius,
+        }}
+      >
+        <motion.div
+          animate={{
+            y: [0, -8, 0]
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: delay + 0.5
+          }}
+          style={{
+            position: 'absolute',
+            left: '50%',
+            top: 0,
+            transform: 'translateX(-50%)',
+          }}
+        >
+          {/* Counter-rotating inner div to keep text upright */}
+          <motion.div
+            initial={{ rotate: -startAngle }}
+            animate={{
+              rotate: -(startAngle + 360)
+            }}
+            transition={{
+              duration: 25,
+              repeat: Infinity,
+              ease: "linear",
+              delay
+            }}
+            className="px-4 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-sm font-semibold text-gray-700 shadow-lg whitespace-nowrap"
+          >
+            {text}
+          </motion.div>
+        </motion.div>
+      </motion.div>
+    </div>
+  );
+};
+
+const Hero = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = useState(false);
+
+  // Mouse position
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const isMouse = typeof window !== 'undefined' && window.matchMedia('(pointer: fine)').matches;
+
+  // Smooth spring values
+  const springX = useSpring(mouseX, { stiffness: 50, damping: 20 });
+  const springY = useSpring(mouseY, { stiffness: 50, damping: 20 });
+
+  // 3D text parallax
+  const rotateX = useTransform(springY, [-0.5, 0.5], [15, -15]);
+  const rotateY = useTransform(springX, [-0.5, 0.5], [-15, 15]);
+
+  // Scroll animations
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
+  const y = useTransform(scrollYProgress, [0, 0.5], [0, -100]);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!containerRef.current || !isMouse) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    mouseX.set((e.clientX - centerX) / rect.width);
+    mouseY.set((e.clientY - centerY) / rect.height);
+  };
+
+  const scrollToProjects = () => {
+    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  // Removed particle generation - replaced with code lines
+
+  // Rotating subtitles
+  const subtitles = [
+    "Software Engineering Student",
+    "Full-Stack Developer",
+    "Creative Problem Solver",
+    "Tech Enthusiast"
+  ];
+
+  const [currentSubtitle, setCurrentSubtitle] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSubtitle((prev) => (prev + 1) % subtitles.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <section
+      ref={containerRef}
+      id="hero"
+      onMouseMove={handleMouseMove}
+      className="relative min-h-screen flex items-center justify-center px-4 md:px-6 overflow-hidden bg-gradient-to-br from-white via-gray-50 to-blue-50/30"
+    >
+      {/* Animated gradient mesh background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          animate={{
+            background: [
+              'radial-gradient(circle at 20% 50%, rgba(96,165,250,0.15) 0%, transparent 50%)',
+              'radial-gradient(circle at 80% 50%, rgba(147,197,253,0.15) 0%, transparent 50%)',
+              'radial-gradient(circle at 50% 80%, rgba(59,130,246,0.15) 0%, transparent 50%)',
+              'radial-gradient(circle at 20% 50%, rgba(96,165,250,0.15) 0%, transparent 50%)'
+            ]
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+          className="absolute inset-0"
+        />
+      </div>
+
+      {/* Main content */}
+      <motion.div
+        style={{ opacity, scale, y }}
+        className="relative z-10 text-center max-w-5xl mx-auto"
+      >
+        {/* Floating badges removed - only particles remain */}
+
+        {/* Solar system orbital particles - entire orbit rotates */}
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+          className="absolute inset-0 flex items-center justify-center pointer-events-none"
+        >
+          {mounted && orbitals.map((orbital, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0 }}
+              animate={{
+                rotate: 360,
+                opacity: [0, 0.8, 0.8]
+              }}
+              transition={{
+                rotate: { duration: orbital.duration, repeat: Infinity, ease: "linear", delay: orbital.delay },
+                opacity: { duration: 0.3, delay: orbital.delay } // Faster fade-in!
+              }}
+              style={{
+                position: 'absolute',
+                width: orbital.radius * 2,
+                height: orbital.radius * 2,
+              }}
+            >
+              <div
+                style={{
+                  position: 'absolute',
+                  left: '50%',
+                  top: 0,
+                  width: orbital.size,
+                  height: orbital.size,
+                  marginLeft: -orbital.size / 2,
+                  borderRadius: '50%',
+                  background: 'radial-gradient(circle, rgba(96,165,250,0.9) 0%, rgba(59,130,246,0.4) 100%)',
+                  boxShadow: '0 0 15px rgba(96,165,250,0.6)',
+                  animation: `particlePulse ${2 + Math.random()}s ease-in-out infinite`,
+                }}
+              />
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* 3D Name with parallax - z-10 to stay above badges */}
+        <motion.div
+          style={{
+            rotateX: isMouse ? rotateX : 0,
+            rotateY: isMouse ? rotateY : 0,
+            transformStyle: "preserve-3d",
+            perspective: 1000
+          }}
+          className="mb-8 relative z-10"
+        >
+          <motion.h1
+            initial={{ opacity: 0, y: 50, scale: 0.8 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{
+              type: "spring",
+              stiffness: 100,
+              damping: 15,
+              delay: 0.2
+            }}
+            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-2"
+            style={{
+              background: "linear-gradient(135deg, #111827 0%, #3b82f6 50%, #8b5cf6 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              textShadow: "0 10px 40px rgba(59,130,246,0.3)",
+              transform: "translateZ(50px)"
+            }}
+          >
+            Madhur Dhadve
+          </motion.h1>
+        </motion.div>
+
+        {/* Animated subtitle with text morphing */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+          className="mb-12 h-8 md:h-10"
+        >
+          <motion.p
+            key={currentSubtitle}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5 }}
+            className="text-lg md:text-xl lg:text-2xl text-gray-600 font-medium"
+          >
+            {subtitles[currentSubtitle]}
+          </motion.p>
+        </motion.div>
+
+        {/* CTA Button */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            delay: 0.9,
+            type: "spring",
+            stiffness: 200,
+            damping: 15
+          }}
+        >
+          <Button
+            onClick={scrollToProjects}
+            size="lg"
+            className="bg-gradient-to-r from-blue-600 via-blue-500 to-purple-600 hover:from-blue-700 hover:via-blue-600 hover:to-purple-700 text-white font-bold px-6 py-4 md:px-8 md:py-6 text-sm md:text-base rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 group relative overflow-hidden"
+          >
+            <motion.div
+              animate={{
+                x: ["-100%", "100%"]
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+            />
+            <span className="relative z-10 flex items-center gap-2">
+              🚀 Explore My Work
+              <ChevronDown className="h-5 w-5 group-hover:translate-y-1 transition-transform" />
+            </span>
+          </Button>
+        </motion.div>
+      </motion.div>
+    </section>
+  );
+};
+
+export default Hero;

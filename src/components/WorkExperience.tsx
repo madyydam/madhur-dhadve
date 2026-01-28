@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useSpring, useMotionValueEvent } from "framer-motion";
-import { Briefcase, ArrowRight, Sparkles } from "lucide-react";
+import { Briefcase, ArrowRight, Sparkles, Hand } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface Experience {
@@ -45,71 +45,77 @@ const experiences: Experience[] = [
   }
 ];
 
-const ExperienceCard = ({ exp, index, scrollProgress, windowWidth }: { exp: Experience; index: number; scrollProgress: any, windowWidth: number }) => {
+const ExperienceCard = ({ exp, index, scrollProgress, windowWidth, totalCards }: { exp: Experience; index: number; scrollProgress: any, windowWidth: number, totalCards: number }) => {
   const isMobile = windowWidth < 768;
-  const cardCount = experiences.length;
 
-  const start = index / cardCount;
-  const end = (index + 1) / cardCount;
-  const mid = (start + end) / 2;
-  const stay = 0.05;
+  // relativePos ranges from index (at scroll 0) to index - totalCards (at scroll 1)
+  // When relativePos is 0, the card is at the front.
+  // When relativePos is negative, it's moving out.
+  // When relativePos is positive, it's in the background stack.
+  const relativePos = useTransform(scrollProgress, [0, 1], [index, index - totalCards]);
 
-  const position = useTransform(
-    scrollProgress,
-    index === 0
-      ? [0, 0.15, end]
-      : [start, mid - stay, mid + stay, end],
-    index === 0
-      ? [0, 0, -1.5]
-      : [1.2, 0, 0, -1.5]
+  const yOffset = useTransform(
+    relativePos,
+    [-1, -0.5, 0, 1, 2, 3],
+    isMobile ? [-120, -100, 0, 20, 40, 60] : [-200, -150, 0, 30, 60, 90]
+  );
+  // ... scaling and opacity stay similar but yOffset is now pushed down ...
+  const opacity = useTransform(
+    relativePos,
+    [-1, -0.5, 0, 1, 2, 3],
+    [0, 0, 1, 0.6, 0.3, 0.15]
   );
 
-  const smoothPosition = useSpring(position, { stiffness: 70, damping: 25 });
+  const scale = useTransform(
+    relativePos,
+    [-1, 0, 1, 2, 3],
+    [0.9, 1, 0.96, 0.92, 0.88]
+  );
 
-  const xMove = isMobile ? 300 : 500;
-  const leftBias = isMobile ? 5 : 15;
-  const topAnchor = isMobile ? "62%" : "62%";
+  const zIndex = useTransform(
+    relativePos,
+    [-1, 0, 1, 2, 3],
+    [0, 10, 8, 6, 4]
+  );
 
-  const xMovement = useTransform(smoothPosition, (p: number) => (p * xMove) + leftBias);
-  const z = useTransform(smoothPosition, (p: number) => Math.abs(p) * -350);
-  const opacity = useTransform(smoothPosition, [-1.2, -0.6, 0, 0.6, 1.2], [0, 0.4, 1, 0.4, 0]);
-  const scale = useTransform(smoothPosition, [-1, 0, 1], [0.85, 1, 0.85]);
-  const rotateY = useTransform(smoothPosition, (p: number) => p * -45);
+  const blur = useTransform(
+    relativePos,
+    [0, 1, 2],
+    [0, 2, 4]
+  );
 
   return (
     <motion.div
       style={{
         left: "50%",
-        top: topAnchor,
-        x: useTransform(xMovement, (v) => `calc(-50% + ${v}px)`),
-        y: "-50%",
-        z,
-        rotateY,
+        top: isMobile ? "55%" : "60%",
+        x: "-50%",
+        y: useTransform(yOffset, (v) => `calc(-50% + ${v}px)`),
         opacity,
         scale,
-        zIndex: useTransform(smoothPosition, (p) => Math.round(100 - Math.abs(p) * 50)),
-        transformStyle: "preserve-3d",
+        zIndex: useTransform(zIndex, (v) => Math.round(v)),
+        filter: useTransform(blur, (v) => `blur(${v}px)`),
       }}
-      className="absolute w-[90vw] md:w-[500px]"
+      className="absolute w-[92vw] md:w-[580px]"
     >
-      <div className="bg-white border-2 border-gray-100 rounded-[28px] md:rounded-[40px] p-6 md:p-10 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.1)] flex flex-col justify-between overflow-hidden relative">
+      <div className="bg-white border-[1px] border-gray-100 rounded-[32px] md:rounded-[48px] p-7 md:p-12 shadow-[0_45px_100px_-25px_rgba(0,0,0,0.08)] flex flex-col justify-between overflow-hidden relative">
         <div className="relative z-10 text-left">
-          <div className="flex items-center gap-4 md:gap-5 mb-5 md:mb-7">
-            <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gray-50 border-2 border-gray-100 flex items-center justify-center overflow-hidden flex-shrink-0">
+          <div className="flex items-center gap-5 md:gap-6 mb-6 md:mb-8">
+            <div className="w-14 h-14 md:w-16 md:h-16 rounded-[20px] bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden flex-shrink-0 shadow-sm">
               {typeof exp.icon === 'string' && exp.icon.startsWith('http') ? (
                 <img src={exp.icon} alt={exp.title} className="w-full h-full object-cover" />
               ) : (
-                <span className="text-2xl md:text-3xl">{exp.icon}</span>
+                <span className="text-3xl md:text-4xl">{exp.icon}</span>
               )}
             </div>
             <div>
-              <h3 className="text-lg md:text-2xl font-black text-gray-900 leading-tight tracking-tight uppercase">
+              <h3 className="text-xl md:text-3xl font-black text-gray-900 leading-tight tracking-tight uppercase">
                 {exp.title}
               </h3>
               {exp.role && (
-                <div className="flex items-center gap-1.5 md:gap-2 mt-0.5 md:mt-1">
-                  <div className="w-1 md:w-1.5 h-1 md:h-1.5 rounded-full bg-accent-blue animate-pulse" />
-                  <p className="text-[8px] md:text-[10px] font-black text-accent-blue uppercase tracking-[0.2em]">
+                <div className="flex items-center gap-2 mt-1 md:mt-1.5">
+                  <div className="w-1.5 h-1.5 rounded-full bg-accent-blue" />
+                  <p className="text-[9px] md:text-[11px] font-black text-accent-blue uppercase tracking-[0.25em]">
                     {exp.role.replace(/^[^\s\w]*\s*/, '')}
                   </p>
                 </div>
@@ -117,15 +123,15 @@ const ExperienceCard = ({ exp, index, scrollProgress, windowWidth }: { exp: Expe
             </div>
           </div>
 
-          <p className="text-sm md:text-base text-gray-500 font-bold leading-relaxed mb-6 md:mb-8">
+          <p className="text-sm md:text-lg text-gray-500 font-medium leading-relaxed mb-7 md:mb-10 max-w-[95%]">
             {exp.description}
           </p>
 
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2.5">
             {exp.badges.map((badge) => (
               <span
                 key={badge}
-                className="px-2.5 py-0.5 md:px-3 md:py-1 rounded-lg bg-gray-50 border border-gray-100 text-[8px] md:text-[10px] font-black uppercase tracking-tight text-gray-400"
+                className="px-3 py-1 md:px-4 md:py-1.5 rounded-xl bg-gray-50 border border-gray-100 text-[9px] md:text-[10px] font-bold uppercase tracking-wider text-gray-400"
               >
                 {badge}
               </span>
@@ -134,14 +140,14 @@ const ExperienceCard = ({ exp, index, scrollProgress, windowWidth }: { exp: Expe
         </div>
 
         {exp.website && (
-          <div className="mt-8 md:mt-10 relative z-10">
+          <div className="mt-10 md:mt-12 relative z-10">
             <Button
               asChild
-              className="w-full bg-gray-900 hover:bg-accent-blue text-white rounded-xl h-10 md:h-12 text-[10px] md:text-[11px] font-black uppercase tracking-widest transition-all duration-300 shadow-xl"
+              className="w-full bg-gray-900 hover:bg-accent-blue text-white rounded-2xl h-12 md:h-14 text-[11px] md:text-[13px] font-black uppercase tracking-[0.15em] transition-all duration-300 shadow-xl shadow-gray-200 hover:shadow-accent-blue/20"
             >
-              <a href={exp.website} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 group/btn">
-                Visit Website
-                <ArrowRight className="w-3.5 md:w-4 h-3.5 md:h-4 group-hover/btn:translate-x-1 transition-transform" />
+              <a href={exp.website} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2.5 group/btn">
+                Launch Project
+                <ArrowRight className="w-4 md:w-5 h-4 md:h-5 group-hover/btn:translate-x-1 transition-transform" />
               </a>
             </Button>
           </div>
@@ -168,8 +174,8 @@ const WorkExperience = () => {
   });
 
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 40,
-    damping: 30,
+    stiffness: 80,
+    damping: 35,
     restDelta: 0.001
   });
 
@@ -181,7 +187,7 @@ const WorkExperience = () => {
     <section
       ref={containerRef}
       id="work"
-      className="relative h-[600vh] bg-white mt-[-1px]"
+      className="relative h-[400vh] bg-white mt-[-1px]"
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col justify-center items-center">
         {/* Background Grid */}
@@ -190,20 +196,15 @@ const WorkExperience = () => {
         {/* Header - Fixed horizontally and vertically biased to top */}
         <motion.div
           style={{ opacity: useTransform(smoothProgress, [0.96, 1], [1, 0]) }}
-          className="absolute top-16 md:top-24 left-0 right-0 z-[120] text-center px-6 pointer-events-none"
+          className="absolute top-16 md:top-32 left-0 right-0 z-[120] text-center px-6 pointer-events-none"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 md:px-4 md:py-1.5 rounded-full bg-gray-50 border-2 border-gray-100 text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-accent-blue mb-3 md:mb-4 shadow-sm">
-            <Sparkles className="w-2.5 md:w-3 h-2.5 md:h-3" />
-            Selected Impact
-          </div>
-          <h2 className="text-3xl md:text-5xl font-black text-gray-900 uppercase tracking-tighter leading-tight mb-1 md:mb-2">
+          <h2 className="text-2xl md:text-5xl font-black text-gray-900 uppercase tracking-tighter leading-tight">
             Work <span className="text-accent-blue">&</span> Experience
           </h2>
-          <p className="text-gray-400 font-bold uppercase text-[8px] md:text-[10px] tracking-[0.2em] md:tracking-[0.4em]">Scroll down to see the proof</p>
         </motion.div>
 
-        {/* 3D Scene - Card Stack */}
-        <div className="absolute inset-0 z-10" style={{ perspective: "2000px", transformStyle: "preserve-3d" }}>
+        {/* Stack Scene - Card Stack */}
+        <div className="absolute inset-0 z-10">
           {experiences.map((exp, index) => (
             <ExperienceCard
               key={exp.title}
@@ -211,9 +212,74 @@ const WorkExperience = () => {
               exp={exp}
               scrollProgress={smoothProgress}
               windowWidth={windowWidth}
+              totalCards={experiences.length}
             />
           ))}
         </div>
+
+        {/* Realistic Hand Scroll Hint (Visible until 4th card) */}
+        <motion.div
+          style={{
+            opacity: useTransform(smoothProgress, [0, 0.9, 0.95], [1, 1, 0]),
+          }}
+          className="absolute bottom-20 md:bottom-24 left-1/2 -translate-x-1/2 flex flex-col items-center z-[130] pointer-events-none"
+        >
+          <div className="relative">
+            {/* Subtle Glow Behind Hand */}
+            <motion.div
+              animate={{
+                scale: [1, 1.3, 1],
+                opacity: [0.1, 0.2, 0.1]
+              }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -inset-12 bg-accent-blue/20 rounded-full blur-[40px]"
+            />
+
+            {/* Realistic Hand Swipe Motion */}
+            <motion.div
+              animate={{
+                y: [50, 40, -60, -70],
+                x: [0, 5, -5, 0],
+                rotate: [20, 18, 12, 20],
+                scale: [0.9, 1.05, 1, 0.9]
+              }}
+              transition={{
+                duration: 2.2,
+                repeat: Infinity,
+                times: [0, 0.25, 0.85, 1],
+                ease: "easeInOut"
+              }}
+              className="relative z-10"
+            >
+              <Hand
+                size={48}
+                strokeWidth={1.5}
+                className="text-accent-blue fill-white/80 stroke-accent-blue filter drop-shadow-[0_10px_25px_rgba(96,165,250,0.4)]"
+              />
+            </motion.div>
+
+            {/* Magical Particles */}
+            {[...Array(4)].map((_, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0 }}
+                animate={{
+                  y: [20, -120],
+                  x: [0, (i - 1.5) * 40],
+                  opacity: [0, 0.7, 0],
+                  scale: [0, 1.2, 0]
+                }}
+                transition={{
+                  duration: 2.5,
+                  repeat: Infinity,
+                  delay: i * 0.4,
+                  ease: "easeOut"
+                }}
+                className="absolute left-1/2 top-1/2 w-1.5 h-1.5 bg-accent-blue rounded-full shadow-[0_0_12px_rgba(96,165,250,0.8)]"
+              />
+            ))}
+          </div>
+        </motion.div>
 
         {/* Indicator System */}
         <div className="absolute bottom-12 md:bottom-16 left-0 right-0 flex justify-center z-[120] pointer-events-none">

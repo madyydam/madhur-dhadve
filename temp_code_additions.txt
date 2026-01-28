@@ -1,0 +1,157 @@
+          {/* TOP SCATTERED */}
+          <div className="absolute top-24 left-[20%] hidden md:block z-0">
+            <motion.div animate={{ y: [0, -12, 0] }} transition={{ duration: 6, repeat: Infinity }} 
+              style={{ fontFamily: 'monospace', fontSize: '14px', color: 'transparent', 
+                backgroundImage: 'linear-gradient(90deg, rgba(96,165,250,0.65), rgba(168,85,247,0.55))', 
+                backgroundClip: 'text', WebkitBackgroundClip: 'text', filter: 'blur(0.3px)', opacity: 0.58 }}>
+              const skills = [&apos;React&apos;, &apos;TypeScript&apos;];
+            </motion.div>
+          </div>
+
+          <div className="absolute top-32 right-[25%] hidden md:block z-0">
+            <motion.div animate={{ x: [0, 15, 0] }} transition={{ duration: 7.5, repeat: Infinity, delay: 0.4 }} 
+              style={{ fontFamily: 'monospace', fontSize: '15px', color: 'transparent', 
+                backgroundImage: 'linear-gradient(90deg, rgba(34,211,238,0.7), rgba(96,165,250,0.6))', 
+                backgroundClip: 'text', WebkitBackgroundClip: 'text', filter: 'blur(0.3px)', opacity: 0.6 }}>
+              import motion from library;
+            </motion.div>
+          </div>
+
+          <div className="absolute top-20 left-[15%] hidden lg:block z-0">
+            <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 9, repeat: Infinity, delay: 0.8 }} 
+              style={{ fontFamily: 'monospace', fontSize: '13px', color: 'transparent', 
+                backgroundImage: 'linear-gradient(90deg, rgba(147,51,234,0.6), rgba(59,130,246,0.5))', 
+                backgroundClip: 'text', WebkitBackgroundClip: 'text', filter: 'blur(0.3px)', opacity: 0.54 }}>
+              export const App = component;
+            </motion.div>
+          </div>
+
+          <div className="absolute top-28 right-[18%] hidden lg:block z-0">
+            <motion.div animate={{ x: [-8, 8, -8] }} transition={{ duration: 8.5, repeat: Infinity }} 
+              style={{ fontFamily: 'monospace', fontSize: '14px', color: 'transparent', 
+                backgroundImage: 'linear-gradient(90deg, rgba(168,85,247,0.68), rgba(34,211,238,0.58))', 
+                backgroundClip: 'text', WebkitBackgroundClip: 'text', filter: 'blur(0.3px)', opacity: 0.56 }}>
+              let portfolio = buildAmazing();
+            </motion.div>
+          </div>
+
+          {/* LEFT SIDE */}
+          <div className="absolute top-[35%] left-8 hidden md:block z-0">
+            <motion.div animate={{ y: [0, -18, 0] }} transition={{ duration: 10, repeat: Infinity, delay: 0.2 }} 
+              style={{ fontFamily: 'monospace', fontSize: '15px', color: 'transparent', 
+                backgroundImage: 'linear-gradient(90deg, rgba(59,130,246,0.7), rgba(168,85,247,0.6))', 
+                backgroundClip: 'text', WebkitBackgroundClip: 'text', filter: 'blur(0.3px)', opacity: 0.61 }}>
+              async function innovate() &#123;&#125;
+            </motion.div>
+          </div>
+
+          <div className="absolute top-[50%] left-14 hidden lg:block z-0">
+            <motion.div animate={{ x: [-10, 10, -10] }} transition={{ duration: 11, repeat: Infinity, delay: 0.6 }} 
+              style={{ fontFamily: 'monospace', fontSize: '14px', color: 'transparent', 
+                backgroundImage: 'linear-gradient(90deg, rgba(96,165,250,0.65), rgba(59,130,246,0.55))', 
+                backgroundClip: 'text', WebkitBackgroundClip: 'text', filter: 'blur(0.3px)', opacity: 0.57 }}>
+              const result = await execute();
+            </motion.div>
+          </div>
+
+          <div className="absolute top-[28%] left-20 hidden md:block z-0">
+            <motion.div animate={{ y: [0, 12, 0] }} transition={{ duration: 8, repeat: Infinity, delay: 1 }} 
+              style={{ fontFamily: 'monospace', fontSize: '16px', color: 'transparent', 
+                backgroundImage: 'linear-gradient(90deg, rgba(34,211,238,0.72), rgba(147,51,234,0.62))', 
+                backgroundClip: 'text', WebkitBackgroundClip: 'text', filter: 'blur(0.3px)', opacity: 0.63 }}>
+              interface Developer &#123;&#125;
+            </motion.div>
+          </div>
+
+          {/* RIGHT SIDE */}
+          <div className="absolute top-[33%] right-10 hidden md:block z-0">
+            <motion.div animate={{ y: [0, -15, 0] }} transition={{ duration: 9.5, repeat: Infinity, delay: 0.3 }} 
+              style={{ fontFamily: 'monospace', fontSize: '15px', color: 'transparent', 
+                backgroundImage: 'linear-gradient(90deg, rgba(168,85,247,0.7), rgba(96,165,250,0.6))', 
+                backgroundClip: 'text', WebkitBackgroundClip: 'text', filter: 'blur(0.3px)', opacity: 0.59 }}>
+              type Props = RecordType;
+            </motion.div>
+          </div>
+
+          <div className="absolute top-[48%] right-18 hidden lg:block z-0">
+            <motion.div animate={{ x: [12, -12, 12] }} transition={{ duration: 10.5, repeat: Infinity }} 
+              style={{ fontFamily: 'monospace', fontSize: '14px', color: 'transparent', 
+                backgroundImage: 'linear-gradient(90deg, rgba(59,130,246,0.68), rgba(34,211,238,0.58))', 
+                backgroundClip: 'text', WebkitBackgroundClip: 'text', filter: 'blur(0.3px)', opacity: 0.58 }}>
+              class Builder extends React &#123;&#125;
+            </motion.div>
+          </div>
+
+          <div className="absolute top-[22%] right-14 hidden md:block z-0">
+            <motion.div animate={{ y: [0, 14, 0] }} transition={{ duration: 7.8, repeat: Infinity, delay: 0.5 }} 
+              style={{ fontFamily: 'monospace', fontSize: '16px', color: 'transparent', 
+                backgroundImage: 'linear-gradient(90deg, rgba(34,211,238,0.7), rgba(59,130,246,0.6))', 
+                backgroundClip: 'text', WebkitBackgroundClip: 'text', filter: 'blur(0.3px)', opacity: 0.6 }}>
+              useState(portfolio);
+            </motion.div>
+          </div>
+
+          {/* BOTTOM */}
+          <div className="absolute bottom-32 left-[22%] hidden md:block z-0">
+            <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 9, repeat: Infinity, delay: 0.7 }} 
+              style={{ fontFamily: 'monospace', fontSize: '15px', color: 'transparent', 
+                backgroundImage: 'linear-gradient(90deg, rgba(96,165,250,0.68), rgba(168,85,247,0.58))', 
+                backgroundClip: 'text', WebkitBackgroundClip: 'text', filter: 'blur(0.3px)', opacity: 0.59 }}>
+              useEffect(() =&gt; deploy(), []);
+            </motion.div>
+          </div>
+
+          <div className="absolute bottom-16 left-[38%] hidden lg:block z-0">
+            <motion.div animate={{ x: [-15, 15, -15] }} transition={{ duration: 11, repeat: Infinity, delay: 0.2 }} 
+              style={{ fontFamily: 'monospace', fontSize: '14px', color: 'transparent', 
+                backgroundImage: 'linear-gradient(90deg, rgba(147,51,234,0.65), rgba(96,165,250,0.55))', 
+                backgroundClip: 'text', WebkitBackgroundClip: 'text', filter: 'blur(0.3px)', opacity: 0.57 }}>
+              return Component(props);
+            </motion.div>
+          </div>
+
+          <div className="absolute bottom-28 right-[28%] hidden md:block z-0">
+            <motion.div animate={{ y: [0, 13, 0] }} transition={{ duration: 8.5, repeat: Infinity, delay: 0.9 }} 
+              style={{ fontFamily: 'monospace', fontSize: '16px', color: 'transparent', 
+                backgroundImage: 'linear-gradient(90deg, rgba(59,130,246,0.7), rgba(34,211,238,0.6))', 
+                backgroundClip: 'text', WebkitBackgroundClip: 'text', filter: 'blur(0.3px)', opacity: 0.61 }}>
+              const optimize = () =&gt; perf;
+            </motion.div>
+          </div>
+
+          <div className="absolute bottom-24 right-[12%] hidden lg:block z-0">
+            <motion.div animate={{ y: [0, -8, 0] }} transition={{ duration: 10, repeat: Infinity, delay: 0.4 }} 
+              style={{ fontFamily: 'monospace', fontSize: '15px', color: 'transparent', 
+                backgroundImage: 'linear-gradient(90deg, rgba(168,85,247,0.68), rgba(59,130,246,0.58))', 
+                backgroundClip: 'text', WebkitBackgroundClip: 'text', filter: 'blur(0.3px)', opacity: 0.58 }}>
+              export default Hero;
+            </motion.div>
+          </div>
+
+          {/* CENTER (low opacity) */}
+          <div className="absolute top-[40%] left-[28%] hidden lg:block z-0">
+            <motion.div animate={{ opacity: [0.3, 0.45, 0.3] }} transition={{ duration: 7, repeat: Infinity }} 
+              style={{ fontFamily: 'monospace', fontSize: '13px', color: 'transparent', 
+                backgroundImage: 'linear-gradient(90deg, rgba(34,211,238,0.5), rgba(168,85,247,0.4))', 
+                backgroundClip: 'text', WebkitBackgroundClip: 'text', filter: 'blur(0.4px)', opacity: 0.3 }}>
+              map(item =&gt; transform(item))
+            </motion.div>
+          </div>
+
+          <div className="absolute top-[45%] right-[22%] hidden lg:block z-0">
+            <motion.div animate={{ y: [0, -11, 0] }} transition={{ duration: 9.5, repeat: Infinity, delay: 0.6 }} 
+              style={{ fontFamily: 'monospace', fontSize: '14px', color: 'transparent', 
+                backgroundImage: 'linear-gradient(90deg, rgba(96,165,250,0.48), rgba(34,211,238,0.38))', 
+                backgroundClip: 'text', WebkitBackgroundClip: 'text', filter: 'blur(0.4px)', opacity: 0.28 }}>
+              filter(x =&gt; x.isValid)
+            </motion.div>
+          </div>
+
+          <div className="absolute top-[58%] left-[42%] hidden md:block z-0">
+            <motion.div animate={{ opacity: [0.25, 0.4, 0.25] }} transition={{ duration: 12, repeat: Infinity, delay: 0.3 }} 
+              style={{ fontFamily: 'monospace', fontSize: '15px', color: 'transparent', 
+                backgroundImage: 'linear-gradient(90deg, rgba(147,51,234,0.45), rgba(59,130,246,0.35))', 
+                backgroundClip: 'text', WebkitBackgroundClip: 'text', filter: 'blur(0.4px)', opacity: 0.25 }}>
+              reduce((acc, val) =&gt; sum)
+            </motion.div>
+          </div>

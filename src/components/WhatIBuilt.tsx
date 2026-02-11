@@ -1,4 +1,4 @@
-import { ExternalLink, Smartphone, CreditCard, Rocket, Palette, Zap, Bot, Briefcase } from "lucide-react";
+import { ExternalLink, Smartphone, CreditCard, Rocket, Palette, Zap, Bot, Briefcase, Brain, Coffee, Leaf } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import futoraGroupLogo from "@/assets/futora-group-logo.png";
 import futoraFlowLogo from "@/assets/futoraflow-logo.png";
@@ -88,12 +88,40 @@ const WhatIBuilt = () => {
     {
       emoji: "💼",
       title: "FutoraJobs Lite",
-      tagline: "Startup jobs platform for proof of work",
-      content: "Internship and jobs platform connecting startups with talented developers.",
-      link: "#",
-      hasWebsite: false,
+      tagline: "Internship & Jobs Platform",
+      content: "Pune's learning-first career platform for startup jobs and internships with skill-based hiring.",
+      link: "https://futorajobs.vercel.app/",
+      hasWebsite: true,
       theme: "futorajobs",
       underDevelopment: true
+    },
+    {
+      emoji: "🧠",
+      title: "FutoraSense",
+      tagline: "Business Intelligence OS",
+      content: "AI-powered business intelligence platform — psychologist, strategy, execution & truth in one OS.",
+      link: "https://futorasense.vercel.app/",
+      hasWebsite: true,
+      theme: "futorasense",
+      underDevelopment: true
+    },
+    {
+      emoji: "☕",
+      title: "FutoraCafe",
+      tagline: "Cafe Demo Platform",
+      content: "Full-featured cafe website with online ordering, pickup system, and table booking functionality.",
+      link: "https://futoracafe.vercel.app/",
+      hasWebsite: true,
+      theme: "futoracafe"
+    },
+    {
+      emoji: "🍃",
+      title: "Amyron",
+      tagline: "Food Donation Dashboard",
+      content: "Food donation management platform connecting surplus food with those who need it most.",
+      link: "https://amyron.vercel.app/",
+      hasWebsite: true,
+      theme: "amyron"
     },
   ];
 
@@ -194,6 +222,42 @@ const WhatIBuilt = () => {
         iconColor: "text-[#F59E0B]"
       };
     }
+    if (theme === "futorasense") {
+      return {
+        wrapper: "bg-gradient-to-br from-[#8B5CF6] via-[#0d0d1a] to-[#06B6D4] p-[1px] rounded-xl hover:shadow-xl hover:shadow-[#8B5CF6]/20 transition-all duration-300 hover:-translate-y-2 group",
+        inner: "bg-[#0d0d1a] rounded-xl p-6 h-full flex flex-col",
+        title: "text-lg font-semibold text-white mb-1",
+        role: "text-xs text-[#8B5CF6] font-medium",
+        content: "text-sm text-gray-400 leading-relaxed mb-4 flex-1",
+        button: "w-full bg-gradient-to-r from-[#8B5CF6] to-[#06B6D4] hover:opacity-90 text-white font-semibold",
+        iconBg: "w-10 h-10 rounded-lg bg-[#8B5CF6]/20 flex items-center justify-center",
+        iconColor: "text-[#8B5CF6]"
+      };
+    }
+    if (theme === "futoracafe") {
+      return {
+        wrapper: "bg-gradient-to-br from-[#92400E] via-[#1a1008] to-[#D97706] p-[1px] rounded-xl hover:shadow-xl hover:shadow-[#D97706]/20 transition-all duration-300 hover:-translate-y-2 group",
+        inner: "bg-[#1a1008] rounded-xl p-6 h-full flex flex-col",
+        title: "text-lg font-semibold text-white mb-1",
+        role: "text-xs text-[#D97706] font-medium",
+        content: "text-sm text-gray-400 leading-relaxed mb-4 flex-1",
+        button: "w-full bg-[#D97706] hover:bg-[#D97706]/90 text-white font-semibold",
+        iconBg: "w-10 h-10 rounded-lg bg-[#D97706]/20 flex items-center justify-center",
+        iconColor: "text-[#D97706]"
+      };
+    }
+    if (theme === "amyron") {
+      return {
+        wrapper: "bg-gradient-to-br from-[#22C55E] via-[#0d1a0f] to-[#22C55E] p-[1px] rounded-xl hover:shadow-xl hover:shadow-[#22C55E]/20 transition-all duration-300 hover:-translate-y-2 group",
+        inner: "bg-[#0d1a0f] rounded-xl p-6 h-full flex flex-col",
+        title: "text-lg font-semibold text-white mb-1",
+        role: "text-xs text-[#22C55E] font-medium",
+        content: "text-sm text-gray-400 leading-relaxed mb-4 flex-1",
+        button: "w-full bg-[#22C55E] hover:bg-[#22C55E]/90 text-white font-semibold",
+        iconBg: "w-10 h-10 rounded-lg bg-[#22C55E]/20 flex items-center justify-center",
+        iconColor: "text-[#22C55E]"
+      };
+    }
     if (theme === "futoradrop") {
       return {
         wrapper: "bg-gradient-to-br from-[#F97316] via-[#1a1410] to-[#F97316] p-[1px] rounded-xl hover:shadow-xl hover:shadow-[#F97316]/20 transition-all duration-300 hover:-translate-y-2 group",
@@ -284,6 +348,18 @@ const WhatIBuilt = () => {
                       ) : project.theme === "futorajobs" ? (
                         <div className={styles.iconBg}>
                           <Briefcase className={`w-6 h-6 ${styles.iconColor}`} />
+                        </div>
+                      ) : project.theme === "futorasense" ? (
+                        <div className={styles.iconBg}>
+                          <Brain className={`w-6 h-6 ${styles.iconColor}`} />
+                        </div>
+                      ) : project.theme === "futoracafe" ? (
+                        <div className={styles.iconBg}>
+                          <Coffee className={`w-6 h-6 ${styles.iconColor}`} />
+                        </div>
+                      ) : project.theme === "amyron" ? (
+                        <div className={styles.iconBg}>
+                          <Leaf className={`w-6 h-6 ${styles.iconColor}`} />
                         </div>
                       ) : (
                         project.emoji

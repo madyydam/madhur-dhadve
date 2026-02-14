@@ -241,8 +241,8 @@ const TiltCard = ({ card, index }: { card: AboutCard; index: number }) => {
 // Extracted Orb component to safely use hooks
 const Orb = ({ orb, scrollYProgress }: { orb: any, scrollYProgress: any }) => {
   const scrollY = useTransform(scrollYProgress, orb.scrollRange, orb.yRange);
-  return (
-    <motion.div style={{ y: scrollY }} className="will-change-transform">
+   return (
+     <motion.div style={{ y: scrollY as any }} className="will-change-transform">
       <FloatingOrb {...orb} />
     </motion.div>
   );

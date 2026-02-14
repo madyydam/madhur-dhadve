@@ -316,8 +316,74 @@ const WhatIBuilt = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-accent-blue to-accent-blue-light mx-auto mb-12 rounded-full"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {builtProjects.map((project, index) => {
+        {/* First row: 4 columns */}
+         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+           {builtProjects.slice(0, 4).map((project, index) => {
+             const styles = getCardStyles(project.theme);
+             return (
+               <div key={index} className={`${styles.wrapper} relative`}>
+                 <div className={styles.inner}>
+                   {project.underDevelopment && (
+                     <div className="absolute top-3 right-3">
+                       <span className="px-2 py-1 text-[10px] font-semibold rounded-full bg-yellow-500/20 text-yellow-400 border border-yellow-500/30">
+                         Under Development
+                       </span>
+                     </div>
+                   )}
+                   <div className="flex items-start gap-4 mb-4">
+                     <div className="text-3xl group-hover:scale-110 transition-transform duration-300">
+                       {project.useIcon ? (
+                         <div className={styles.iconBg}><Smartphone className={`w-6 h-6 ${styles.iconColor}`} /></div>
+                       ) : project.useLogo === "futoraflow" ? (
+                         <div className="w-12 h-12 rounded-lg flex items-center justify-center overflow-hidden"><img src={futoraFlowLogo} alt="FutoraFlow" className="w-12 h-12 object-contain" /></div>
+                       ) : project.useLogo === "futorapay" ? (
+                         <div className="w-12 h-12 rounded-lg flex items-center justify-center overflow-hidden"><img src={futoraPayLogo} alt="FutoraPay" className="w-12 h-12 object-contain" /></div>
+                       ) : project.useLogo ? (
+                         <div className="w-12 h-12 rounded-lg flex items-center justify-center overflow-hidden"><img src={futoraGroupLogo} alt="Futora Group" className="w-12 h-12 object-contain" /></div>
+                       ) : project.theme === "futorapay" ? (
+                         <div className={styles.iconBg}><CreditCard className={`w-6 h-6 ${styles.iconColor}`} /></div>
+                       ) : project.theme === "futoralift" ? (
+                         <div className={styles.iconBg}><Rocket className={`w-6 h-6 ${styles.iconColor}`} /></div>
+                       ) : project.theme === "futoradrop" ? (
+                         <div className={styles.iconBg}><Zap className={`w-6 h-6 ${styles.iconColor}`} /></div>
+                       ) : project.theme === "futuraai" ? (
+                         <div className={styles.iconBg}><Bot className={`w-6 h-6 ${styles.iconColor}`} /></div>
+                       ) : project.theme === "futorajobs" ? (
+                         <div className={styles.iconBg}><Briefcase className={`w-6 h-6 ${styles.iconColor}`} /></div>
+                       ) : project.theme === "futorasense" ? (
+                         <div className={styles.iconBg}><Brain className={`w-6 h-6 ${styles.iconColor}`} /></div>
+                       ) : project.theme === "futoracafe" ? (
+                         <div className={styles.iconBg}><Coffee className={`w-6 h-6 ${styles.iconColor}`} /></div>
+                       ) : project.theme === "amyron" ? (
+                         <div className={styles.iconBg}><Leaf className={`w-6 h-6 ${styles.iconColor}`} /></div>
+                       ) : project.theme === "futoraliftOS" ? (
+                         <div className={styles.iconBg}><Zap className={`w-6 h-6 ${styles.iconColor}`} /></div>
+                       ) : (
+                         project.emoji
+                       )}
+                     </div>
+                     <div className="flex-1">
+                       <h3 className={styles.title}>{project.title}</h3>
+                       <div className="flex items-center gap-2">
+                         <p className={styles.role}>{project.tagline}</p>
+                       </div>
+                     </div>
+                   </div>
+                   <p className={styles.content}>{project.content}</p>
+                   {project.hasWebsite && (
+                     <Button onClick={() => window.open(project.link, '_blank')} size="sm" className={styles.button}>
+                       View Website <ExternalLink className="ml-2 h-3 w-3" />
+                     </Button>
+                   )}
+                 </div>
+               </div>
+             );
+           })}
+         </div>
+
+         {/* Remaining rows: 3 columns */}
+         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+           {builtProjects.slice(4).map((project, index) => {
             const styles = getCardStyles(project.theme);
             return (
               <div

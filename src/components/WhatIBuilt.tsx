@@ -115,15 +115,24 @@ const WhatIBuilt = () => {
       theme: "futoracafe"
     },
     {
-      emoji: "🍃",
-      title: "Amyron",
-      tagline: "Food Donation Dashboard",
-      content: "Food donation management platform connecting surplus food with those who need it most.",
-      link: "https://amyron.vercel.app/",
-      hasWebsite: true,
-      theme: "amyron"
+       emoji: "🍃",
+       title: "Amyron",
+       tagline: "Food Donation Dashboard",
+       content: "Food donation management platform connecting surplus food with those who need it most.",
+       link: "https://amyron.vercel.app/",
+       hasWebsite: true,
+       theme: "amyron"
+     },
+    {
+       emoji: "⚡",
+       title: "FutoraLift OS",
+       tagline: "The Operating System for Modern Agencies",
+       content: "Streamline your entire agency workflow from lead generation to financial reporting in one unified platform.",
+       link: "https://futoraliftos.vercel.app/",
+       hasWebsite: true,
+       theme: "futoraliftOS"
     },
-  ];
+   ];
 
   const getCardStyles = (theme: string) => {
     if (theme === "futoralift") {
@@ -259,18 +268,30 @@ const WhatIBuilt = () => {
       };
     }
     if (theme === "futoradrop") {
-      return {
-        wrapper: "bg-gradient-to-br from-[#F97316] via-[#1a1410] to-[#F97316] p-[1px] rounded-xl hover:shadow-xl hover:shadow-[#F97316]/20 transition-all duration-300 hover:-translate-y-2 group",
-        inner: "bg-[#1a1410] rounded-xl p-6 h-full flex flex-col",
-        title: "text-lg font-semibold text-white mb-1",
-        role: "text-xs text-[#F97316] font-medium",
-        content: "text-sm text-gray-400 leading-relaxed mb-4 flex-1",
-        button: "w-full bg-[#F97316] hover:bg-[#F97316]/90 text-white font-semibold",
-        iconBg: "w-10 h-10 rounded-lg bg-[#F97316]/20 flex items-center justify-center",
-        iconColor: "text-[#F97316]"
-      };
-    }
-    return {
+       return {
+         wrapper: "bg-gradient-to-br from-[#F97316] via-[#1a1410] to-[#F97316] p-[1px] rounded-xl hover:shadow-xl hover:shadow-[#F97316]/20 transition-all duration-300 hover:-translate-y-2 group",
+         inner: "bg-[#1a1410] rounded-xl p-6 h-full flex flex-col",
+         title: "text-lg font-semibold text-white mb-1",
+         role: "text-xs text-[#F97316] font-medium",
+         content: "text-sm text-gray-400 leading-relaxed mb-4 flex-1",
+         button: "w-full bg-[#F97316] hover:bg-[#F97316]/90 text-white font-semibold",
+         iconBg: "w-10 h-10 rounded-lg bg-[#F97316]/20 flex items-center justify-center",
+         iconColor: "text-[#F97316]"
+       };
+     }
+    if (theme === "futoraliftOS") {
+       return {
+         wrapper: "bg-gradient-to-br from-[#00A3FF] via-[#0a1628] to-[#00A3FF] p-[1px] rounded-xl hover:shadow-xl hover:shadow-[#00A3FF]/20 transition-all duration-300 hover:-translate-y-2 group",
+         inner: "bg-[#0a1628] rounded-xl p-6 h-full flex flex-col",
+         title: "text-lg font-semibold text-white mb-1",
+         role: "text-xs text-[#00A3FF] font-medium",
+         content: "text-sm text-gray-400 leading-relaxed mb-4 flex-1",
+         button: "w-full bg-[#00A3FF] hover:bg-[#00A3FF]/90 text-white font-semibold",
+         iconBg: "w-10 h-10 rounded-lg bg-[#00A3FF]/20 flex items-center justify-center",
+         iconColor: "text-[#00A3FF]"
+       };
+     }
+     return {
       wrapper: "bg-gradient-to-br from-foreground via-accent-blue to-foreground p-[1px] rounded-xl hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group",
       inner: "bg-card rounded-xl p-6 h-full flex flex-col",
       title: "text-lg font-semibold text-foreground bg-gradient-to-r from-foreground to-accent-blue bg-clip-text text-transparent mb-1",
@@ -357,11 +378,15 @@ const WhatIBuilt = () => {
                         <div className={styles.iconBg}>
                           <Coffee className={`w-6 h-6 ${styles.iconColor}`} />
                         </div>
-                      ) : project.theme === "amyron" ? (
-                        <div className={styles.iconBg}>
-                          <Leaf className={`w-6 h-6 ${styles.iconColor}`} />
-                        </div>
-                      ) : (
+                       ) : project.theme === "amyron" ? (
+                         <div className={styles.iconBg}>
+                           <Leaf className={`w-6 h-6 ${styles.iconColor}`} />
+                         </div>
+                       ) : project.theme === "futoraliftOS" ? (
+                         <div className={styles.iconBg}>
+                           <Zap className={`w-6 h-6 ${styles.iconColor}`} />
+                         </div>
+                       ) : (
                         project.emoji
                       )}
                     </div>

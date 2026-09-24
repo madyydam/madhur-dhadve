@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://madhur.futoragroup.in/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://madhur.futoragroup.in/og-image.png</image:loc>
+      <image:title>Madhur Dhadve – Entrepreneur &amp; Founder of Futora Group</image:title>
+      <image:caption>Official website of Madhur Dhadve, Pune-based entrepreneur and founder of Futora Group and the Futora software ecosystem</image:caption>
+    </image:image>
+  </url>
+</urlset>

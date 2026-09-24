@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-import { motion, useScroll, useTransform, useSpring, useMotionValueEvent } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, useMotionValueEvent, type MotionValue } from "framer-motion";
 import { Briefcase, ArrowRight, Sparkles, Hand } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -45,7 +45,7 @@ const experiences: Experience[] = [
   }
 ];
 
-const ExperienceCard = ({ exp, index, scrollProgress, windowWidth, totalCards }: { exp: Experience; index: number; scrollProgress: any, windowWidth: number, totalCards: number }) => {
+const ExperienceCard = ({ exp, index, scrollProgress, windowWidth, totalCards }: { exp: Experience; index: number; scrollProgress: MotionValue<number>, windowWidth: number, totalCards: number }) => {
   const isMobile = windowWidth < 768;
 
   // relativePos ranges from index (at scroll 0) to index - totalCards (at scroll 1)

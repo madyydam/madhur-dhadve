@@ -24,7 +24,7 @@ const contactFormSchema = z.object({
   contactNumber: z.string()
     .trim()
     .optional()
-    .refine((val) => !val || /^[\d\s\+\-\(\)]{10,15}$/.test(val), {
+    .refine((val) => !val || /^[\d\s+\-()]{10,15}$/.test(val), {
       message: "Please enter a valid phone number (10-15 digits)"
     }),
   message: z.string()

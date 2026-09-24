@@ -1,5 +1,5 @@
-import { useRef, useState } from "react";
-import { motion, useScroll, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { useRef, useState, useMemo } from "react";
+import { motion, useScroll, useMotionValue, useSpring, useTransform, type MotionValue } from "framer-motion";
 import { Sparkles } from "lucide-react";
 
 interface AboutCard {
@@ -238,11 +238,21 @@ const TiltCard = ({ card, index }: { card: AboutCard; index: number }) => {
   );
 };
 
+interface OrbData {
+  delay: number;
+  size: number;
+  left: string;
+  top: string;
+  duration: number;
+  scrollRange: [number, number];
+  yRange: [number, number];
+}
+
 // Extracted Orb component to safely use hooks
-const Orb = ({ orb, scrollYProgress }: { orb: any, scrollYProgress: any }) => {
+const Orb = ({ orb, scrollYProgress }: { orb: OrbData; scrollYProgress: MotionValue<number> }) => {
   const scrollY = useTransform(scrollYProgress, orb.scrollRange, orb.yRange);
-   return (
-     <motion.div style={{ y: scrollY as any }} className="will-change-transform">
+  return (
+    <motion.div style={{ y: scrollY }} className="will-change-transform">
       <FloatingOrb {...orb} />
     </motion.div>
   );
@@ -258,22 +268,26 @@ const About = () => {
   });
 
   const orbCount = isMobile ? 3 : 12;
-  const orbs = Array.from({ length: orbCount }).map(() => ({
-    delay: Math.random() * 2,
-    size: isMobile ? 60 + Math.random() * 40 : 80 + Math.random() * 70,
-    left: `${Math.random() * 100}%`,
-    top: `${Math.random() * 100}%`,
-    duration: 4 + Math.random() * 4,
-    scrollRange: [0, 1] as [number, number],
-    yRange: [Math.random() * 100 - 50, Math.random() * -100 + 50] as [number, number]
-  }));
+  const orbs = useMemo<OrbData[]>(() => {
+    return Array.from({ length: orbCount }).map(() => ({
+      delay: Math.random() * 2,
+      size: isMobile ? 60 + Math.random() * 40 : 80 + Math.random() * 70,
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      duration: 4 + Math.random() * 4,
+      scrollRange: [0, 1] as [number, number],
+      yRange: [Math.random() * 100 - 50, Math.random() * -100 + 50] as [number, number]
+    }));
+  }, [orbCount, isMobile]);
 
   const sparkleCount = isMobile ? 0 : 8;
-  const sparkles = Array.from({ length: sparkleCount }).map(() => ({
-    delay: Math.random() * 3,
-    left: `${10 + Math.random() * 80}%`,
-    top: `${10 + Math.random() * 80}%`
-  }));
+  const sparkles = useMemo(() => {
+    return Array.from({ length: sparkleCount }).map(() => ({
+      delay: Math.random() * 3,
+      left: `${10 + Math.random() * 80}%`,
+      top: `${10 + Math.random() * 80}%`
+    }));
+  }, [sparkleCount]);
 
 
 

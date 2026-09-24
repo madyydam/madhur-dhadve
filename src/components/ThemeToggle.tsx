@@ -18,6 +18,7 @@ const ThemeToggle = () => {
         <Button
             variant="ghost"
             size="icon"
+            aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
             onClick={() => setIsDark(!isDark)}
             className="relative w-10 h-10 rounded-full bg-accent-blue/10 hover:bg-accent-blue/20 transition-all duration-500 overflow-hidden group border border-accent-blue/20"
         >

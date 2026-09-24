@@ -4,41 +4,45 @@ import { Button } from "@/components/ui/button";
 
 import { cn } from "@/lib/utils";
 
+const NAV_ITEMS = [
+  { name: "Home", href: "#hero", id: "hero" },
+  { name: "Projects", href: "#projects", id: "projects" },
+  { name: "Stack", href: "#tech", id: "tech" },
+  { name: "Skills", href: "#skills", id: "skills" },
+  { name: "Journey", href: "#journey", id: "journey" },
+  { name: "Work", href: "#work", id: "work" },
+  { name: "About", href: "#about", id: "about" },
+  { name: "Let's Talk", href: "https://wa.me/918446653644", id: "contact" },
+];
+
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
   const [isScrolled, setIsScrolled] = useState(false);
 
-  const navItems = [
-    { name: "Home", href: "#hero", id: "hero" },
-    { name: "Projects", href: "#projects", id: "projects" },
-    { name: "Stack", href: "#tech", id: "tech" },
-    { name: "Skills", href: "#skills", id: "skills" },
-    { name: "Journey", href: "#journey", id: "journey" },
-    { name: "Work", href: "#work", id: "work" },
-    { name: "About", href: "#about", id: "about" },
-    { name: "Let's Talk", href: "https://wa.me/918446653644", id: "contact" },
-  ];
-
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 20);
 
-      const sections = navItems.map(item => {
-        if (item.href.startsWith('#')) {
-          return document.getElementById(item.id);
-        }
-        return null;
-      });
-
-      const currentSection = sections.find(section => {
-        if (!section) return false;
-        const rect = section.getBoundingClientRect();
-        return rect.top <= 120 && rect.bottom >= 120;
-      });
-
-      if (currentSection) {
-        setActiveSection(currentSection.id);
+          for (const item of NAV_ITEMS) {
+            if (item.href.startsWith('#')) {
+              const el = document.getElementById(item.id);
+              if (el) {
+                const rect = el.getBoundingClientRect();
+                if (rect.top <= 120 && rect.bottom >= 120) {
+                  setActiveSection(item.id);
+                  break;
+                }
+              }
+            }
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
@@ -89,7 +93,7 @@ const Navigation = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-1">
-              {navItems.map((item) => (
+              {NAV_ITEMS.map((item) => (
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
@@ -114,6 +118,7 @@ const Navigation = () => {
               <Button
                 variant="ghost"
                 size="icon"
+                aria-label="Open navigation menu"
                 onClick={() => setIsOpen(true)}
                 className="lg:hidden text-white hover:bg-white/10 rounded-full"
               >
@@ -133,6 +138,7 @@ const Navigation = () => {
           <Button
             variant="ghost"
             size="icon"
+            aria-label="Close navigation menu"
             onClick={() => setIsOpen(false)}
             className="absolute top-8 right-8 text-white hover:bg-white/10 rounded-full w-12 h-12"
           >
@@ -140,7 +146,7 @@ const Navigation = () => {
           </Button>
 
           <div className="flex flex-col gap-8">
-            {navItems.map((item) => (
+            {NAV_ITEMS.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.href)}

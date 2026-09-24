@@ -29,7 +29,7 @@ const skillDescriptions = {
   "Full-Stack Development": "Building projects with both front-end and back-end skills",
 };
 
-const SkillCard = ({ skill, index }: { skill: any, index: number }) => {
+const SkillCard = ({ skill, index }: { skill: (typeof skills)[number]; index: number }) => {
   const Icon = skill.icon;
 
   return (

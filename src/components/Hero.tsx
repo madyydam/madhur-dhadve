@@ -3,11 +3,12 @@ import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 
+const ROLES = ["Full-Stack Developer", "Curious Learner", "Founder"];
+
 const Hero = () => {
   const [roleIndex, setRoleIndex] = useState(0);
-  const roles = ["Full-Stack Developer", "Curious Learner", "Founder"];
 
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLElement>(null);
   // Scroll Progress - Linked to the container
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -22,7 +23,7 @@ const Hero = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setRoleIndex((prev) => (prev + 1) % roles.length);
+      setRoleIndex((prev) => (prev + 1) % ROLES.length);
     }, 2500);
     return () => clearInterval(interval);
   }, []);
@@ -310,7 +311,7 @@ const Hero = () => {
                 transition={{ duration: 0.4 }}
                 className="text-lg md:text-xl lg:text-2xl font-medium text-muted-foreground/90 tracking-wide"
               >
-                {roles[roleIndex]}
+                {ROLES[roleIndex]}
               </motion.span>
             </AnimatePresence>
           </div>

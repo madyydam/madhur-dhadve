@@ -46,19 +46,29 @@ const Journey = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      if (!containerRef.current) return;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          if (containerRef.current) {
+            const container = containerRef.current;
+            const rect = container.getBoundingClientRect();
+            const scrollDistance = -rect.top;
+            const totalScrollableHeight = rect.height - window.innerHeight;
+            const progress = totalScrollableHeight > 0 
+              ? Math.min(Math.max(scrollDistance / totalScrollableHeight, 0), 1)
+              : 0;
 
-      const container = containerRef.current;
-      const rect = container.getBoundingClientRect();
-      const scrollDistance = -rect.top;
-      const totalScrollableHeight = rect.height - window.innerHeight;
-      const progress = Math.min(Math.max(scrollDistance / totalScrollableHeight, 0), 1);
-
-      setScrollProgress(progress);
+            setScrollProgress((prev) => (Math.abs(prev - progress) > 0.001 ? progress : prev));
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 

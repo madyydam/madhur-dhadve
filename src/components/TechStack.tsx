@@ -67,8 +67,16 @@ const CustomIcon = ({ type }: { type: string }) => {
   return null;
 };
 
+interface TechItem {
+  name: string;
+  icon?: string;
+  description: string;
+  zoom?: boolean;
+  customIcon?: string;
+}
+
 const TechStack = () => {
-  const [selectedTech, setSelectedTech] = useState<any>(null);
+  const [selectedTech, setSelectedTech] = useState<TechItem | null>(null);
 
   return (
     <section id="tech" className="py-10 px-4 bg-background relative overflow-hidden">
